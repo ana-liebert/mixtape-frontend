@@ -1,20 +1,22 @@
 import './App.css';
 import Header from './components/Header';
 import { Route, Routes } from "react-router-dom";
-import Home from './pages/Home';
+import Mixes from './pages/Mixes';
+import Main from './components/Main';
 
 
 
 
 
 function App() {
-  const URL = "http://localhost:8000/mixtape/";
 
   return (
     <div className="App">
-      <Routes>
-        <Route path="/mixes" element={<Home URL={URL} />} />
-      </Routes>
+      <Header />
+      <Main />
+      {/* <Routes>
+        <Route path="/mixes" element={<Main URL={URL} />} />
+      </Routes> */}
     </div>
   );
 }
