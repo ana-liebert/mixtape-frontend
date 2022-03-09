@@ -29,7 +29,7 @@ function GenreIndex(props) {
 
     const loaded = () => {
         return mixes.map((mix) => (
-            <div key={mix._id} className="mix">
+            <div key={mix.id} className="mix">
                 <img src={mix.image} alt={mix.title} />
                 <h3>{mix.description}</h3>
                 <h3></h3>

@@ -10,7 +10,7 @@ function Mixes(props) {
       return props.mixes.map((mix) => (
         <div key={mix._id} className="mix">
             <img src={mix.image} alt={mix.title}/>
-          <Link to={`/mixes/${mix._id}`}><h1>{mix.title}</h1></Link>
+          <Link to={`/mixes/${mix.id}`}><h1>{mix.title}</h1></Link>
           <h3>{mix.description}</h3>
           <h3></h3>
         </div>

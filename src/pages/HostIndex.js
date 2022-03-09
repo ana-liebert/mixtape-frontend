@@ -8,8 +8,8 @@ function HostIndex(props) {
     // loaded function
     const loaded = () => {
         return props.hosts.map((host) => (
-            <div key={host._id} >
-                <Link to={`/hosts/${host._id}`}><h1>{host.name}</h1></Link>
+            <div key={host.id} >
+                <Link to={`/hosts/${host.id}`}><h1>{host.name}</h1></Link>
                 <img src={host.image}/>
             </div>
         ));

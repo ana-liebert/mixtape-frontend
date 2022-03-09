@@ -9,7 +9,7 @@ function DiscoverPage(props) {
     const loaded = () => {
         return props.genres.map((genre) => (
             <div key={genre._id} >
-                <Link to={`/discover/${genre._id}`}><h1>{genre.name}</h1></Link>
+                <Link to={`/discover/${genre.id}`}><h1>{genre.name}</h1></Link>
             </div>
         ));
     };
