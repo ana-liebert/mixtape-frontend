@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Route, Routes, useParams } from "react-router-dom";
 import Mixes from "../pages/Mixes";
 import MixDetail from "../pages/MixDetail";
+import Create from "../pages/Create";
 
 
 function Main(props) {
@@ -16,28 +17,28 @@ function Main(props) {
         setMixes(data);
     };
 
-    // const createMix = async mix => {
-    //     // make post request to create people
-    //     await fetch(URL, {
-    //         method: "post",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //     body: JSON.stringify(mix),
-    //     });
-    //     // update list of people
-    //     getMixes();
-    // };
+    const createMix = async mix => {
+        // make post request to create
+        await fetch(URL + "mixes/", {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        body: JSON.stringify(mix),
+        });
+        // update list
+        getMixes();
+    };
 
     useEffect(() => getMixes(), []);
 
 
     return (
         <main>
-           
             <Routes>
                 <Route path="/mixes" element={<Mixes mixes={mixes}/>} />
-                <Route path="/mixes/:id" element={<MixDetail getMixes={getMixes} mixes={mixes} />}/>
+                <Route path="/mixes/create" element={<Create createMix={createMix} />}/>
+                <Route path="/mixes/:id" element={<MixDetail />}/>
             </Routes>
         </main>
     );

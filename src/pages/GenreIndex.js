@@ -1,5 +1,5 @@
 import React from "react"
-import {useParams} from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 function GenreIndex(props) {
@@ -15,7 +15,7 @@ function GenreIndex(props) {
         const response = await fetch(URL + "mixes");
         const data = await response.json();
         console.log("All of the mixes", data)
-        
+
         // foundMixes = data.filter(mixesFound => mixesFound.genre.id = foundGenreId)
         foundMixes = data.filter((filtered) => {
             return filtered.genre.includes(foundGenreId)
@@ -23,18 +23,20 @@ function GenreIndex(props) {
         setMixes(foundMixes);
         console.log("these are the mixes for genre filter", foundMixes)
     };
-    
+
     useEffect(() => getMixes(), []);
-    
+
 
     const loaded = () => {
-        return (
-            <div>
-                <h1>{mixes.title}</h1>
-                <h1>{mixes.description}</h1>
+        return mixes.map((mix) => (
+            <div key={mix._id} className="mix">
+                <img src={mix.image} alt={mix.title} />
+                <h3>{mix.description}</h3>
+                <h3></h3>
             </div>
-        )
-    }
+        ));
+    };
+
     const loading = () => {
         return (
             <h1>Loading...</h1>
