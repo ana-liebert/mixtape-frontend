@@ -12,21 +12,22 @@ function Main(props) {
     const getMixes = async () => {
         const response = await fetch(URL + "mixes");
         const data = await response.json();
+        console.log(data)
         setMixes(data);
     };
 
-    const createMix = async mix => {
-        // make post request to create people
-        await fetch(URL, {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        body: JSON.stringify(mix),
-        });
-        // update list of people
-        getMixes();
-    };
+    // const createMix = async mix => {
+    //     // make post request to create people
+    //     await fetch(URL, {
+    //         method: "post",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //     body: JSON.stringify(mix),
+    //     });
+    //     // update list of people
+    //     getMixes();
+    // };
 
     useEffect(() => getMixes(), []);
 
@@ -36,7 +37,7 @@ function Main(props) {
            
             <Routes>
                 <Route path="/mixes" element={<Mixes mixes={mixes}/>} />
-                <Route path="/mixes/:id" element={<MixDetail mixes={mixes} />}/>
+                <Route path="/mixes/:id" element={<MixDetail getMixes={getMixes} mixes={mixes} />}/>
             </Routes>
         </main>
     );
