@@ -3,15 +3,16 @@ import { Route, Routes, useParams } from "react-router-dom";
 import Mixes from "../pages/Mixes";
 import MixDetail from "../pages/MixDetail";
 import Create from "../pages/Create";
+import UpdateDelete from "../pages/UpdateDelete";
 
 
 function Main(props) {
     const [mixes, setMixes] = useState(null);
 
-    const URL = "http://localhost:8000/mixtape/";
+    const URL = "http://localhost:8000/mixtape/mixes";
 
     const getMixes = async () => {
-        const response = await fetch(URL + "mixes");
+        const response = await fetch(URL);
         const data = await response.json();
         console.log(data)
         setMixes(data);
@@ -19,7 +20,7 @@ function Main(props) {
 
     const createMix = async mix => {
         // make post request to create
-        await fetch(URL + "mixes/", {
+        await fetch(URL, {
             method: "post",
             headers: {
                 "Content-Type": "application/json",
@@ -30,6 +31,35 @@ function Main(props) {
         getMixes();
     };
 
+
+    const updateMix = async (id, mix) => {
+        // make put request
+        console.log(mix)
+        console.log(id)
+        await fetch(URL + "update/" + id , {
+            method: "put",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(mix),
+        })
+        // update list
+        getMixes()
+    }
+
+
+
+
+    const deleteMix = async id => {
+        // make delete request to create people
+        await fetch(URL + "mixes/update/" + id , {
+            method: "delete",
+            })
+        // update list
+        getMixes()
+    }
+
+
     useEffect(() => getMixes(), []);
 
 
@@ -39,6 +69,7 @@ function Main(props) {
                 <Route path="/mixes" element={<Mixes mixes={mixes}/>} />
                 <Route path="/mixes/create" element={<Create createMix={createMix} />}/>
                 <Route path="/mixes/:id" element={<MixDetail />}/>
+                <Route path="/mixes//update/:id" element={<UpdateDelete deleteMix={deleteMix} updateMix={updateMix} />}/>
             </Routes>
         </main>
     );

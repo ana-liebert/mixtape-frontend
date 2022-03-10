@@ -5,14 +5,14 @@ import { useState, useEffect } from "react"
 function GenreIndex(props) {
     const [mixes, setMixes] = useState(null);
 
-    const URL = "http://localhost:8000/mixtape/";
+    const URL = "http://localhost:8000/mixtape/mixes";
     let foundMixes
     const genreId = useParams()
     const foundGenreId = Number(genreId.id)
     console.log("this is the genre id to filter by", foundGenreId)
 
     const getMixes = async () => {
-        const response = await fetch(URL + "mixes");
+        const response = await fetch(URL);
         const data = await response.json();
         console.log("All of the mixes", data)
 
