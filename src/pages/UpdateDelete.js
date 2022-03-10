@@ -41,10 +41,10 @@ function UpdateDelete(props) {
 
     
 
+    console.log("mix to remove", mixes)
     const removeMix = () => {
-        console.log("mix to remove", mixes)
-        props.deleteMix(mixes)
-        props.history.push("/mixtape/mixes")
+        props.deleteMix(mixes, mixes.id)
+        navigate("/mixes")
     }
 
 

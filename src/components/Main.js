@@ -50,9 +50,10 @@ function Main(props) {
 
 
 
-    const deleteMix = async id => {
+    const deleteMix = async (mix, id) => {
+        console.log("id inside the function", id)
         // make delete request to create people
-        await fetch(URL + id , {
+        await fetch(URL + id + "/", {
             method: "delete",
             })
         // update list
