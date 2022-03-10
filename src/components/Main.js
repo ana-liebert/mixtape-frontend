@@ -9,7 +9,7 @@ import UpdateDelete from "../pages/UpdateDelete";
 function Main(props) {
     const [mixes, setMixes] = useState(null);
 
-    const URL = "http://localhost:8000/mixtape/mixes";
+    const URL = "http://localhost:8000/mixtape/mixes/";
 
     const getMixes = async () => {
         const response = await fetch(URL);
@@ -19,8 +19,8 @@ function Main(props) {
     };
 
     const createMix = async mix => {
-        // make post request to create
-        await fetch(URL, {
+        
+        await fetch(URL ,{
             method: "post",
             headers: {
                 "Content-Type": "application/json",
@@ -32,11 +32,11 @@ function Main(props) {
     };
 
 
-    const updateMix = async (id, mix) => {
+    const updateMix = async (mix, id) => {
         // make put request
         console.log(mix)
         console.log(id)
-        await fetch(URL + "update/" + id , {
+        await fetch(URL + id + "/", {
             method: "put",
             headers: {
                 "Content-Type": "application/json",
@@ -52,7 +52,7 @@ function Main(props) {
 
     const deleteMix = async id => {
         // make delete request to create people
-        await fetch(URL + "mixes/update/" + id , {
+        await fetch(URL + id , {
             method: "delete",
             })
         // update list
@@ -69,7 +69,7 @@ function Main(props) {
                 <Route path="/mixes" element={<Home mixes={mixes}/>} />
                 <Route path="/mixes/create" element={<Create createMix={createMix} />}/>
                 <Route path="/mixes/:id" element={<MixDetail />}/>
-                <Route path="/mixes//update/:id" element={<UpdateDelete deleteMix={deleteMix} updateMix={updateMix} />}/>
+                <Route path="/mixes/update/:id" element={<UpdateDelete deleteMix={deleteMix} updateMix={updateMix} />}/>
             </Routes>
         </main>
     );

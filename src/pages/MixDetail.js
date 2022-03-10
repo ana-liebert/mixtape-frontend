@@ -29,7 +29,7 @@ function MixDetail(props) {
                 <img src={mixes.image}/>
                 <h1>{mixes.title}</h1> 
                 <p>{mixes.description}</p>
-                <iframe width="100%" height="20" scrolling="no" frameborder="no" src={mixes.soundcloudplayer}></iframe>
+                <iframe width="100%" height="20" scrolling="no" frameBorder="no" src={mixes.soundcloudplayer}></iframe>
                 
             </div>
         )
