@@ -79,13 +79,13 @@ function UpdateDelete(props) {
                         placeholder={mixes.host}
                         onChange={handleChange}
                     />
-                    <input
+                    {/* <input
                         type="text"
                         value={editForm.genre}
                         name="genre"
                         placeholder={mixes.genre}
                         onChange={handleChange}
-                    />
+                    /> */}
                     <input
                         type="text"
                         value={editForm.image}
@@ -114,13 +114,13 @@ function UpdateDelete(props) {
                         placeholder="soundclouduser"
                         onChange={handleChange}
                     />
-                    <input
+                    {/* <input
                         type="text"
                         value={editForm.tracklist}
                         name="tracklist"
                         placeholder={mixes.tracklist}
                         onChange={handleChange}
-                    />
+                    /> */}
                     <input type="submit" value="Update Mix" />
                 </form>
                 <button id="delete" onClick={removeMix}>DELETE</button>

@@ -7,12 +7,12 @@ function Create(props) {
             title: "",
             description: "",
             host: "",
-            genre: "",
+            
             image: "",
             soundcloudplayer: "",
             soundcloudlink: "",
             soundclouduser: "",
-            tracklist: "",
+            
     })
     console.log(newForm)
     // handleChange function for form
@@ -28,12 +28,12 @@ function Create(props) {
             title: "",
             description: "",
             host: "",
-            genre: "",
+           
             image: "",
             soundcloudplayer: "",
             soundcloudlink: "",
             soundclouduser: "",
-            tracklist: "",
+           
         })
     }
 
@@ -63,13 +63,6 @@ function Create(props) {
                 />
                 <input
                     type="text"
-                    value={newForm.genre}
-                    name="genre"
-                    placeholder="genre"
-                    onChange={handleChange}
-                />
-                <input
-                    type="text"
                     value={newForm.image}
                     name="image"
                     placeholder="image"
@@ -94,13 +87,6 @@ function Create(props) {
                     value={newForm.soundclouduser}
                     name="soundclouduser"
                     placeholder="soundclouduser"
-                    onChange={handleChange}
-                />
-                <input
-                    type="array"
-                    value={newForm.tracklist}
-                    name="tracklist"
-                    placeholder="tracklist"
                     onChange={handleChange}
                 />
                 <input type="submit" value="Create Mix" />

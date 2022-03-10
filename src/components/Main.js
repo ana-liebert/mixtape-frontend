@@ -34,7 +34,7 @@ function Main(props) {
 
     const updateMix = async (mix, id) => {
         // make put request
-        console.log(mix)
+        console.log("this is the mix to stringify", mix)
         console.log(id)
         await fetch(URL + id + "/", {
             method: "put",
