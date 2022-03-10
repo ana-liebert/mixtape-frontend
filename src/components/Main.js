@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Route, Routes, useParams } from "react-router-dom";
-import Mixes from "../pages/Mixes";
+import Home from "../pages/Home";
 import MixDetail from "../pages/MixDetail";
 import Create from "../pages/Create";
 import UpdateDelete from "../pages/UpdateDelete";
@@ -66,7 +66,7 @@ function Main(props) {
     return (
         <main>
             <Routes>
-                <Route path="/mixes" element={<Mixes mixes={mixes}/>} />
+                <Route path="/mixes" element={<Home mixes={mixes}/>} />
                 <Route path="/mixes/create" element={<Create createMix={createMix} />}/>
                 <Route path="/mixes/:id" element={<MixDetail />}/>
                 <Route path="/mixes//update/:id" element={<UpdateDelete deleteMix={deleteMix} updateMix={updateMix} />}/>

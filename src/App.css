@@ -11,3 +11,19 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.cover-image {
+  width: 100%;
+  height:auto;
+  opacity: 80%;
+  position: relative;
+  margin: 0;
+  background-size: cover;
+  width: 100%px;
+  overflow:hidden;
+}
+
+.home-card {
+  max-width: 500px;
+  max-height: 500px;
+}
