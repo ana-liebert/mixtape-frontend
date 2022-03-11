@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import Auth from '../components/Auth';
-import { Navigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom'; 
+
 
 const Login = (props) => {
-
+  
+  const navigate = useNavigate()
 
 
   const login = async loggedin => {
@@ -30,7 +32,7 @@ const Login = (props) => {
 function handleSubmit(event) {
     event.preventDefault()
     login(newForm);
-    return <Navigate to='/mixtape/mixes' />
+    navigate("/mixes")
 
     // try {
     //   await login();

@@ -9,16 +9,16 @@ function HostDetail(props) {
     let foundHost
     const hostId = useParams()
     const foundHostId = Number(hostId.id)
-    console.log(foundHostId)
+    // console.log(foundHostId)
 
     const getHosts = async () => {
         const response = await fetch(URL + "hosts");
         const data = await response.json();
-        console.log(data)
+        // console.log(data)
         
         foundHost = data.find(host => host.id === foundHostId)
         setHosts(foundHost);
-        console.log("this is the found host", foundHost)
+        // console.log("this is the found host", foundHost)
     };
 
     useEffect(() => getHosts(), []);

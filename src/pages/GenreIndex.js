@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 function GenreIndex(props) {
+    
     const [mixes, setMixes] = useState(null);
 
     const URL = "http://localhost:8000/mixtape/mixes";

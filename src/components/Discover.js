@@ -12,7 +12,7 @@ function Discover(props) {
     const getGenres = async () => {
         const response = await fetch(URL + "discover");
         const data = await response.json();
-        console.log(data)
+        // console.log(data)
         setGenres(data);
     };
 
@@ -22,7 +22,7 @@ function Discover(props) {
         <main>
             <Routes>
                 <Route path="/discover" element={<DiscoverPage genres={genres}/>} />
-                <Route path="/discover/:id" element={<GenreIndex />}/> 
+                <Route path="/discover/:id" element={<GenreIndex genres={genres} />}/> 
             </Routes>
         </main>
     );

@@ -7,7 +7,7 @@ function Create(props) {
             title: "",
             description: "",
             host: "",
-            
+            genre: "",
             image: "",
             soundcloudplayer: "",
             soundcloudlink: "",
@@ -28,7 +28,7 @@ function Create(props) {
             title: "",
             description: "",
             host: "",
-           
+            genre: "",
             image: "",
             soundcloudplayer: "",
             soundcloudlink: "",
@@ -59,6 +59,13 @@ function Create(props) {
                     value={newForm.host}
                     name="host"
                     placeholder="host"
+                    onChange={handleChange}
+                />
+                <input
+                    type="number"
+                    value={Number(newForm.genre)}
+                    name="genre"
+                    placeholder="genre"
                     onChange={handleChange}
                 />
                 <input

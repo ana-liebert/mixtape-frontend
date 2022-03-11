@@ -12,7 +12,7 @@ function Hosts(props) {
     const getHosts = async () => {
         const response = await fetch(URL + "hosts");
         const data = await response.json();
-        console.log(data)
+        // console.log(data)
         setHosts(data);
     };
 

@@ -14,7 +14,7 @@ function Main(props) {
     const getMixes = async () => {
         const response = await fetch(URL);
         const data = await response.json();
-        console.log(data)
+        // console.log(data)
         setMixes(data);
     };
 
@@ -25,7 +25,7 @@ function Main(props) {
             headers: {
                 "Content-Type": "application/json",
             },
-        body: JSON.stringify(mix),
+            body: JSON.stringify(mix),
         });
         // update list
         getMixes();
@@ -34,14 +34,15 @@ function Main(props) {
 
     const updateMix = async (mix, id) => {
         // make put request
-        console.log("this is the mix to stringify", mix)
-        console.log(id)
+        // console.log("this is the mix to stringify", mix)
+        // console.log(id)
         await fetch(URL + id + "/", {
             method: "put",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(mix),
+            // body: mix
+            // body: JSON.stringify(mix),
         })
         // update list
         getMixes()
