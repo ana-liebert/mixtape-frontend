@@ -5,10 +5,10 @@ import MixDetail from "../pages/MixDetail";
 import Create from "../pages/Create";
 import UpdateDelete from "../pages/UpdateDelete";
 import Catchall from "./Catchall";
-// import { rj, useRunRj } from 'react-rocketjump'
-import { ajax } from 'rxjs/ajax'
-// import { useAuthActions, useAuthUser } from 'use-eazy-auth'
-import Login from "../pages/Login";
+
+import Register from "./Register";
+import Login from "./Login";
+import Logout from "./Logout";
 
 // const MixState = rj({
 //     effectCaller: rj.configured(),
@@ -89,6 +89,9 @@ function Main(props) {
                 <Route path="/mixes/create" element={<Create createMix={createMix} />}/>
                 <Route path="/mixes/:id" element={<MixDetail />}/>
                 <Route path="/mixes/update/:id" element={<UpdateDelete deleteMix={deleteMix} updateMix={updateMix} />}/>
+                <Route path="/register" element={<Register />}/>
+                <Route path="/login" element={<Login />}/>
+                <Route path="/logout" element={<Logout />}/>
             </Routes>
         </main>
     );
