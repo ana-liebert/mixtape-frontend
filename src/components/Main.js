@@ -5,13 +5,27 @@ import MixDetail from "../pages/MixDetail";
 import Create from "../pages/Create";
 import UpdateDelete from "../pages/UpdateDelete";
 import Catchall from "./Catchall";
+// import { rj, useRunRj } from 'react-rocketjump'
+import { ajax } from 'rxjs/ajax'
+// import { useAuthActions, useAuthUser } from 'use-eazy-auth'
+import Login from "../pages/Login";
 
+// const MixState = rj({
+//     effectCaller: rj.configured(),
+//     effect: (token) => (search = '') =>
+//     //   ajax.getJSON(`/api/contacts/?search=${search}`, {
+//         ajax.getJSON("http://localhost:8000/mixtape/mixes/", {
+//         Authorization: `Bearer ${token}`,
+//       }),
+//   })
 
 function Main(props) {
+
+    // const [{ data: themixes }] = useRunRj(MixState)
     const [mixes, setMixes] = useState(null);
 
     // const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/mixes/";
-    const URL = "http://localhost:8000/mixtape/mixes";
+    const URL = "http://localhost:8000/mixtape/mixes/";
 
     const getMixes = async () => {
         const response = await fetch(URL);
