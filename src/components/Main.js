@@ -4,12 +4,14 @@ import Home from "../pages/Home";
 import MixDetail from "../pages/MixDetail";
 import Create from "../pages/Create";
 import UpdateDelete from "../pages/UpdateDelete";
+import Catchall from "./Catchall";
 
 
 function Main(props) {
     const [mixes, setMixes] = useState(null);
 
-    const URL = "http://localhost:8000/mixtape/mixes/";
+    // const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/mixes/";
+    const URL = "http://localhost:8000/mixtape/mixes";
 
     const getMixes = async () => {
         const response = await fetch(URL);
@@ -68,6 +70,7 @@ function Main(props) {
     return (
         <main>
             <Routes>
+                <Route path="/" element={<Catchall />} />
                 <Route path="/mixes" element={<Home mixes={mixes}/>} />
                 <Route path="/mixes/create" element={<Create createMix={createMix} />}/>
                 <Route path="/mixes/:id" element={<MixDetail />}/>

@@ -18,6 +18,7 @@ function Header() {
                     </Link>
                 </div>
             </nav>
+            <h1>Welcome</h1>
         </header>
     );
 }
