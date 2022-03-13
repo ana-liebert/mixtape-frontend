@@ -7,12 +7,13 @@ import GenreIndex from "../pages/GenreIndex";
 function Discover(props) {
     const [genres, setGenres] = useState(null);
 
-    const URL = "http://localhost:8000/mixtape/";
+    // const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/discover/";
+    const URL = "http://localhost:8000/mixtape/discover";
 
     const getGenres = async () => {
-        const response = await fetch(URL + "discover");
+        const response = await fetch(URL);
         const data = await response.json();
-        console.log(data)
+        // console.log(data)
         setGenres(data);
     };
 
@@ -22,7 +23,7 @@ function Discover(props) {
         <main>
             <Routes>
                 <Route path="/discover" element={<DiscoverPage genres={genres}/>} />
-                <Route path="/discover/:id" element={<GenreIndex />}/> 
+                <Route path="/discover/:id" element={<GenreIndex genres={genres} />}/> 
             </Routes>
         </main>
     );

@@ -8,7 +8,7 @@ function DiscoverPage(props) {
     // loaded function
     const loaded = () => {
         return props.genres.map((genre) => (
-            <div key={genre._id} >
+            <div key={genre.id} >
                 <Link to={`/discover/${genre.id}`}><h1>{genre.name}</h1></Link>
             </div>
         ));

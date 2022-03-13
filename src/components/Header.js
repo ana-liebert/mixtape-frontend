@@ -5,8 +5,8 @@ function Header() {
 
     return (
         <header>
-            <nav class="nav navbar navbar-expand-lg navbar-light bg-light">
-                <div class="nav container">
+            <nav className="nav navbar navbar-expand-lg navbar-light bg-light">
+                <div className="nav container">
                     <Link to="/mixes">
                         <div>HOME</div>
                     </Link>
@@ -18,6 +18,7 @@ function Header() {
                     </Link>
                 </div>
             </nav>
+            <h1>Welcome</h1>
         </header>
     );
 }

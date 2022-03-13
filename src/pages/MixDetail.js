@@ -18,7 +18,7 @@ function MixDetail(props) {
         
         thisMix = data.find(taco => taco.id === foundId)
         setMixes(thisMix);
-        console.log("this is the found mix", thisMix)
+        // console.log("this is the found mix", thisMix)
     };
 
     useEffect(() => getMixes(), []);
