@@ -13,6 +13,7 @@ export default function SignUp() {
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
         axiosInstance.defaults.headers['Authorization'] = null;
+        console.log("you are logged out")
         navigate('/mixes');
     });
     return <div>Logout</div>

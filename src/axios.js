@@ -2,7 +2,8 @@ import axios from 'axios';
 
 // basic connection to axios ------->
 
-const baseURL = "http://localhost:8000/"
+// const baseURL = "http://localhost:8000/"
+const baseURL = "https://aliebert-mixtape.herokuapp.com/"
 
 
 const axiosInstance = axios.create({

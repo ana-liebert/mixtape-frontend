@@ -18,13 +18,9 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {/* <Routes> */}
-
       <Main />
       <Discover />
       <Hosts />
-{/* 
-      </Routes> */}
     </div>
   );
 }

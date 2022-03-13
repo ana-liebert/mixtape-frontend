@@ -45,6 +45,7 @@ export default function SignIn() {
                 navigate('/mixes');
                 console.log(res);
                 console.log(res.data);
+                console.log("you are logged in");
             })
     };
 

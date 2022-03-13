@@ -5,7 +5,7 @@ import { useState, useEffect } from "react"
 function MixDetail(props) {
     const [mixes, setMixes] = useState(null);
 
-    const URL = "http://localhost:8000/mixtape/";
+    const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/";
     let thisMix
     const mixId = useParams()
     const foundId = Number(mixId.id)
