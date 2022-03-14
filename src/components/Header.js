@@ -16,6 +16,15 @@ function Header() {
                     <Link to="/hosts">
                         <div>HOSTS</div>
                     </Link>
+                    <Link to="/register">
+                        <div>Register</div>
+                    </Link>
+                    <Link to="/login">
+                        <div>Login</div>
+                    </Link>
+                    <Link to="/logout">
+                        <div>Logout</div>
+                    </Link>
                 </div>
             </nav>
             <h1>Welcome</h1>

@@ -8,7 +8,7 @@ function UpdateDelete(props) {
 
     const navigate = useNavigate()
 
-    const URL = "http://localhost:8000/mixtape/mixes";
+    const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/mixes/";
     let thisMix
     const mixId = useParams()
     const foundId = Number(mixId.id)
