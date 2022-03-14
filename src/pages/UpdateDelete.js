@@ -74,14 +74,14 @@ function UpdateDelete(props) {
                         type="text"
                         value={editForm.title}
                         name="title"
-                        placeholder="title"
+                        placeholder={mixes.title}
                         onChange={handleChange}
                     />
                     <input
                         type="text"
                         value={editForm.description}
                         name="description"
-                        placeholder="description"
+                        placeholder={mixes.description}
                         onChange={handleChange}
                     />
                     <input
@@ -107,28 +107,28 @@ function UpdateDelete(props) {
                         type="text"
                         value={editForm.image}
                         name="image"
-                        placeholder="image"
+                        placeholder={mixes.image}
                         onChange={handleChange}
                     />
                     <input
                         type="text"
                         value={editForm.soundcloudplayer}
                         name="soundcloudplayer"
-                        placeholder="soundcloudplayer"
+                        placeholder={mixes.soundcloudplayer}
                         onChange={handleChange}
                     />
                     <input
                     type="text"
                     value={editForm.creator}
                     name="creator"
-                    placeholder="creator"
+                    placeholder={mixes.creator}
                     onChange={handleChange}
                 />
                   <input
                     type="text"
                     value={editForm.tracklist}
                     name="tracklist"
-                    placeholder="tracklist"
+                    placeholder={mixes.tracklist}
                     onChange={handleChange}
                 />
                     <input type="submit" value="Update Mix" />

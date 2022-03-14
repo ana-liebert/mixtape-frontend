@@ -25,6 +25,8 @@ function MixDetail(props) {
 
     useEffect(() => getMixes(), []);
 
+    const [liked, setLiked] = useState("like")
+
     const loaded = () => {
         return (
             <div>
@@ -32,7 +34,9 @@ function MixDetail(props) {
                 <h1>Title: {mixes.title}</h1> 
                 <p>Description: {mixes.description}</p>
                 <iframe width="100%" height="20" scrolling="no" frameBorder="no" src={mixes.soundcloudplayer}></iframe>
-                
+                <button onClick={() => setLiked("liked")}>{liked}</button>
+                <form>
+                </form>
             </div>
         )
     }

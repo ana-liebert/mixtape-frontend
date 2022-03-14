@@ -53,7 +53,12 @@ function Main(props) {
         getMixes();
     };
 
-    
+// likeMix
+// I want to add to the userprofile 'favorites' field -- push the selected mix to the array
+// basic  version -- just a button 
+    // use state intial empty- set state to liked on click
+
+
 
     const createGenre = async genre => {
         
