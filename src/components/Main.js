@@ -10,12 +10,15 @@ import Register from "./Register";
 import Login from "./Login";
 import Logout from "./Logout";
 
+import Profile from "../pages/Profile";
+
 
 function Main(props) {
 
     const [mixes, setMixes] = useState(null);
 
-    const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/mixes/";
+    // const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/mixes/";
+    const URL = "http://localhost:8000/mixtape/mixes/";
 
     const getMixes = async () => {
         const response = await fetch(URL);
@@ -24,18 +27,57 @@ function Main(props) {
         setMixes(data);
     };
 
+    const [genres, setGenres] = useState(null);
+
+    // const URLGENRE = "https://aliebert-mixtape.herokuapp.com/mixtape/discover/";
+    const URLGENRE = "http://localhost:8000/mixtape/discover/";
+
+    const getGenres = async () => {
+        const response = await fetch(URLGENRE);
+        const data = await response.json();
+        setGenres(data);
+        console.log("genre data", data)
+    };
+
     const createMix = async mix => {
+        console.log(mix)
+        console.log(mix.title)
+        await fetch(URL ,{
+            method: "post",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            // body: JSON.stringify(mix),
+            body: JSON.stringify({
+                title: mix.title,
+                description: mix.description,
+                host: mix.host,
+                image: mix.image,
+                soundcloudplayer: mix.soundcloudplayer,
+                creator: mix.creator,
+                
+            }),
+            // body: JSON.loads(mix.genre),
+        });
+        // update list
+        getMixes();
+    };
+
+    
+
+    const createGenre = async genre => {
         
         await fetch(URL ,{
             method: "post",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(mix),
+            body: JSON.loads(genre),
         });
         // update list
-        getMixes();
+        getGenres();
     };
+
 
 
     const updateMix = async (mix, id) => {
@@ -69,6 +111,9 @@ function Main(props) {
 
 
     useEffect(() => getMixes(), []);
+    useEffect(() => getGenres(), []);
+    // need this for the fetch to actually show any data
+    
 
 
     return (
@@ -76,12 +121,13 @@ function Main(props) {
             <Routes>
                 {/* <Route path="/" element={<Catchall />} /> */}
                 <Route path="/mixes" element={<Home mixes={mixes}/>} />
-                <Route path="/mixes/create" element={<Create createMix={createMix} />}/>
+                <Route path="/mixes/create" element={<Create createMix={createMix} genres={genres} createGenre={createGenre} />}/>
                 <Route path="/mixes/:id" element={<MixDetail />}/>
                 <Route path="/mixes/update/:id" element={<UpdateDelete deleteMix={deleteMix} updateMix={updateMix} />}/>
                 <Route path="/register" element={<Register />}/>
                 <Route path="/login" element={<Login />}/>
                 <Route path="/logout" element={<Logout />}/>
+                <Route path="/profile" element={<Profile />}/>
             </Routes>
         </main>
     );
