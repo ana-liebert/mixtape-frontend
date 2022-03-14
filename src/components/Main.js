@@ -116,7 +116,7 @@ function Main(props) {
                 <Route path="/register" element={<Register />}/>
                 <Route path="/login" element={<Login />}/>
                 <Route path="/logout" element={<Logout />}/>
-                <Route path="/profile" element={<Profile />}/>
+                <Route path="/profile/:id" element={<Profile />}/>
             </Routes>
         </main>
     );

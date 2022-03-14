@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+
 
 function Create(props) {
     console.log("genre props to map through", props.genres)
@@ -12,9 +13,11 @@ function Create(props) {
             image: "",
             soundcloudplayer: "",
             creator: "",
+            tracklist: "",
             
     })
     console.log(newForm)
+
 
     const handleChange = event => {
         setNewForm({ ...newForm, [event.target.name]: event.target.value })
@@ -23,6 +26,8 @@ function Create(props) {
     const [genreInput, setGenreInput] = useState({
         genre: [1]
     });
+
+    useEffect(() => setGenreInput(), []);
 
 
     // const options = [
@@ -35,11 +40,10 @@ function Create(props) {
 //         {genre.name} </option>
 //         )
 
-const handleGenreChange = event => {
-    console.log("this is the genre change", event.target)
-    setGenreInput({[event.target.name]: event.target.value })
-
-}
+// const handleGenreChange = event => {
+//     console.log("this is the genre change", event.target)
+//     setGenreInput({[event.target.name]: event.target.value })
+// }
     
     
     const handleSubmit = event => {
@@ -56,10 +60,12 @@ const handleGenreChange = event => {
             image: "",
             soundcloudplayer: "",
             creator: "",
+            tracklist: "",
         })
     }
 
-    return (
+    const loaded = () => {
+        return (
         <section>
             <form onSubmit={handleSubmit}>
                 <input
@@ -88,13 +94,15 @@ const handleGenreChange = event => {
                 Select genre tags
                 </label>
                 {/* this only works when page is already loaded and then you add it in?? */}
-                <select multiple onChange={(event) => setGenreInput(event.target.value)} value={genreInput}>
-                    
+                
+                <select onChange={(event) => setGenreInput(event.target.value)} value={genreInput}>
+            
                     {props.genres.map(
                         (genre) => <option key={genre.id} value={genre.id}>
                             {genre.name}
                         </option>
                     )}
+                
                 </select>
 
                 {/* <select id="dropdown">
@@ -124,11 +132,32 @@ const handleGenreChange = event => {
                     name="creator"
                     placeholder="creator"
                     onChange={handleChange}
+                /> 
+                <input
+                    type="textarea"
+                    value={newForm.tracklist}
+                    name="tracklist"
+                    placeholder="tracklist"
+                    onChange={handleChange}
                 />
+
+
+
                 <input type="submit" value="Create Mix" />
             </form>
             </section>
     )
+}
+
+const loading = () => {
+
+    return (
+        <h1>Loading...</h1>
+    )
+}
+
+    return newForm ? loaded() : loading()
+
 }
 
 export default Create

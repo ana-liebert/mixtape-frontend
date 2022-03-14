@@ -35,6 +35,7 @@ function UpdateDelete(props) {
             image: "",
             soundcloudplayer: "",
             creator: "",
+            tracklist: "",
     })
 
     const [genreInput, setGenreInput] = useState({ genre: [1]})
@@ -121,6 +122,13 @@ function UpdateDelete(props) {
                     value={editForm.creator}
                     name="creator"
                     placeholder="creator"
+                    onChange={handleChange}
+                />
+                  <input
+                    type="text"
+                    value={editForm.tracklist}
+                    name="tracklist"
+                    placeholder="tracklist"
                     onChange={handleChange}
                 />
                     <input type="submit" value="Update Mix" />

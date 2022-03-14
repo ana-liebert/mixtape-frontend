@@ -25,6 +25,9 @@ function Header() {
                     <Link to="/logout">
                         <div>Logout</div>
                     </Link>
+                    <Link to="/profile/4">
+                        <div>Profile</div>
+                    </Link>
                 </div>
             </nav>
             <h1>Welcome</h1>
