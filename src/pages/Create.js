@@ -8,7 +8,7 @@ function Create(props) {
             title: "",
             description: "",
             host: "",
-            genre: "",
+            genre: [1],
             image: "",
             soundcloudplayer: "",
             creator: "",
@@ -20,8 +20,8 @@ function Create(props) {
         setNewForm({ ...newForm, [event.target.name]: event.target.value })
     }
 
-    const [genreInput, setGenre] = useState({
-        genre: []
+    const [genreInput, setGenreInput] = useState({
+        genre: [1]
     });
 
 
@@ -34,18 +34,25 @@ function Create(props) {
 //     (genre) => <option key={genre.id} value={genre.id}>
 //         {genre.name} </option>
 //         )
+
+const handleGenreChange = event => {
+    console.log("this is the genre change", event.target)
+    setGenreInput({[event.target.name]: event.target.value })
+
+}
     
     
     const handleSubmit = event => {
         event.preventDefault()
+        console.log(newForm.genre)
         props.createMix(newForm)
-        props.createGenre(genreInput)
+        // props.createGenre(genreInput)
         // how can i get specific genre change in new form? 
         setNewForm({
             title: "",
             description: "",
             host: "",
-            genre: "",
+            genre: [1],
             image: "",
             soundcloudplayer: "",
             creator: "",
@@ -80,7 +87,8 @@ function Create(props) {
                 <label>
                 Select genre tags
                 </label>
-                <select onChange={(event) => setGenre(event.target.value)} value={genreInput}>
+                {/* this only works when page is already loaded and then you add it in?? */}
+                <select multiple onChange={(event) => setGenreInput(event.target.value)} value={genreInput}>
                     
                     {props.genres.map(
                         (genre) => <option key={genre.id} value={genre.id}>
@@ -88,6 +96,13 @@ function Create(props) {
                         </option>
                     )}
                 </select>
+
+                {/* <select id="dropdown">
+                    
+                    <option value={newForm.genre} onChange={handleGenreChange}>1</option>
+                    <option value={newForm.genre} onChange={handleGenreChange}>2</option>
+                    <option value={newForm.genre} onChange={handleGenreChange}>3</option>
+                </select> */}
 
                 <input
                     type="text"

@@ -8,7 +8,8 @@ function UpdateDelete(props) {
 
     const navigate = useNavigate()
 
-    const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/mixes/";
+    // const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/mixes/";
+    const URL = "http://localhost:8000/mixtape/mixes/";
     let thisMix
     const mixId = useParams()
     const foundId = Number(mixId.id)
@@ -26,7 +27,17 @@ function UpdateDelete(props) {
     console.log("updated state of mixes ---------->", mixes)
 
 
-    const [editForm, setEditForm] = useState("")
+    const [editForm, setEditForm] = useState({
+            title: "",
+            description: "",
+            host: "",
+            genre: [1],
+            image: "",
+            soundcloudplayer: "",
+            creator: "",
+    })
+
+    const [genreInput, setGenreInput] = useState({ genre: [1]})
     
 
     const handleChange = event => {
@@ -79,13 +90,18 @@ function UpdateDelete(props) {
                         placeholder={mixes.host}
                         onChange={handleChange}
                     />
-                    {/* <input
-                        type="text"
-                        value={editForm.genre}
-                        name="genre"
-                        placeholder={mixes.genre}
-                        onChange={handleChange}
-                    /> */}
+                     <label>
+                Select genre tags
+                </label>
+                {/* this only works when page is already loaded and then you add it in?? */}
+                <select multiple onChange={(event) => setGenreInput(event.target.value)} value={genreInput}>
+                    
+                    {props.genres.map(
+                        (genre) => <option key={genre.id} value={genre.id}>
+                            {genre.name}
+                        </option>
+                    )}
+                </select>
                     <input
                         type="text"
                         value={editForm.image}
@@ -101,26 +117,12 @@ function UpdateDelete(props) {
                         onChange={handleChange}
                     />
                     <input
-                        type="text"
-                        value={editForm.soundcloudlink}
-                        name="soundcloudlink"
-                        placeholder="soundcloudlink"
-                        onChange={handleChange}
-                    />
-                    <input
-                        type="text"
-                        value={editForm.soundclouduser}
-                        name="soundclouduser"
-                        placeholder="soundclouduser"
-                        onChange={handleChange}
-                    />
-                    {/* <input
-                        type="text"
-                        value={editForm.tracklist}
-                        name="tracklist"
-                        placeholder={mixes.tracklist}
-                        onChange={handleChange}
-                    /> */}
+                    type="text"
+                    value={editForm.creator}
+                    name="creator"
+                    placeholder="creator"
+                    onChange={handleChange}
+                />
                     <input type="submit" value="Update Mix" />
                 </form>
                 <button id="delete" onClick={removeMix}>DELETE</button>

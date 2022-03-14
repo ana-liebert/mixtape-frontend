@@ -19,12 +19,21 @@ const Profile = () => {
 
     const loaded = () => {
         <h1>User Profile</h1>
-        return profile.map((user) => (
+
+        return (profile.map((user) => (
+
             <div>
-            <h1>User ID: {user.id}</h1>
-            <h1>Likes: {user.favorites}</h1>
+                <h1>User:{user.user.user_name}</h1>
+                <h1>Favorites:</h1>
+                {
+                    user.favorites.map((mixes) => {
+                        return (
+                <h1>{mixes.title}</h1>
+                        )
+                    })
+                }
             </div>
-        ));
+        )))
 };
     
     const loading = () => {
