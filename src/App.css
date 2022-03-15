@@ -23,7 +23,9 @@ body {
   overflow:hidden;
 }
 
-.home-card {
+.mixcard {
   max-width: 500px;
-  max-height: 500px;
+  height: 500px;
+  margin: 20px;
+  color: black;
 }

@@ -6,7 +6,8 @@ function GenreIndex(props) {
     
     const [mixes, setMixes] = useState(null);
 
-    const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/mixes/";
+    // const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/mixes/";
+    const URL = "http://localhost:8000/mixtape/mixtape/mixes";
     let foundMixes
     const genreId = useParams()
     const foundGenreId = Number(genreId.id)

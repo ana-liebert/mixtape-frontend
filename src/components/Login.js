@@ -24,6 +24,10 @@ export default function SignIn() {
         });
     };
 
+    const [credentials, setCredentials] = useState(null);
+
+    
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formData)
@@ -45,9 +49,12 @@ export default function SignIn() {
                 navigate('/mixes');
                 console.log(res);
                 console.log(res.data);
+                setCredentials(res.data)
                 console.log("you are logged in");
             })
     };
+
+
 
     return (
         <form>

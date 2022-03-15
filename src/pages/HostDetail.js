@@ -5,7 +5,8 @@ import { useState, useEffect } from "react"
 function HostDetail(props) {
     const [hosts, setHosts] = useState(null);
 
-    const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/";
+    // const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/";
+    const URL = "http://localhost:8000/mixtape/";
     let foundHost
     const hostId = useParams()
     const foundHostId = Number(hostId.id)

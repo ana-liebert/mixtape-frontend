@@ -2,6 +2,21 @@ import { useState, useEffect } from "react"
 
 
 function Create(props) {
+
+
+    const [mixes, setMixes] = useState(null);
+
+
+    // const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/mixes/";
+    const URL = "http://localhost:8000/mixtape/mixes/";
+
+
+    const getMixes = async () => {
+        const response = await fetch(URL);
+        const data = await response.json();
+        setMixes(data);
+    };
+
     console.log("genre props to map through", props.genres)
     
     // state to hold formData
@@ -27,7 +42,14 @@ function Create(props) {
         genre: [1]
     });
 
-    useEffect(() => setGenreInput(), []);
+    useEffect(() => getMixes(), []);
+
+    const Timer =()=>{
+        useEffect( ()=>{
+           console.log("hello");
+           setTimeout( ()=>{ alert("hello"); }, 2000);
+        }, [] );
+     }
 
 
     // const options = [
@@ -67,6 +89,7 @@ function Create(props) {
     const loaded = () => {
         return (
         <section>
+           {/* {Timer()} */}
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -156,7 +179,7 @@ const loading = () => {
     )
 }
 
-    return newForm ? loaded() : loading()
+    return mixes ? loaded() : loading()
 
 }
 
