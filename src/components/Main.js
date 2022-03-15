@@ -47,23 +47,12 @@ function Main(props) {
             headers: {
                 "Content-Type": "application/json",
             },
-            // body: JSON.stringify(mix),
-            body: JSON.stringify({
-                title: mix.title,
-                description: mix.description,
-                host: mix.host,
-                image: mix.image,
-                soundcloudplayer: mix.soundcloudplayer,
-                creator: mix.creator,
-                
-            }),
-            // body: JSON.loads(mix.genre),
+            body: JSON.stringify(mix),
         });
         // update list
         getMixes();
     };
 
-    
 
     const createGenre = async genre => {
         
@@ -89,8 +78,7 @@ function Main(props) {
             headers: {
                 "Content-Type": "application/json",
             },
-            // body: mix
-            // body: JSON.stringify(mix),
+            body: JSON.stringify(mix),
         })
         // update list
         getMixes()
@@ -110,6 +98,9 @@ function Main(props) {
     }
 
 
+
+
+
     useEffect(() => getMixes(), []);
     useEffect(() => getGenres(), []);
     // need this for the fetch to actually show any data
@@ -122,12 +113,13 @@ function Main(props) {
                 {/* <Route path="/" element={<Catchall />} /> */}
                 <Route path="/mixes" element={<Home mixes={mixes}/>} />
                 <Route path="/mixes/create" element={<Create createMix={createMix} genres={genres} createGenre={createGenre} />}/>
-                <Route path="/mixes/:id" element={<MixDetail />}/>
-                <Route path="/mixes/update/:id" element={<UpdateDelete deleteMix={deleteMix} updateMix={updateMix} />}/>
+                {/* <Route path="/mixes/:id" element={<MixDetail  />}/> */}
+                <Route path="/mixes/update/:id" element={<UpdateDelete genres={genres} deleteMix={deleteMix} updateMix={updateMix} />}/>
                 <Route path="/register" element={<Register />}/>
-                <Route path="/login" element={<Login />}/>
-                <Route path="/logout" element={<Logout />}/>
-                <Route path="/profile" element={<Profile />}/>
+                {/* <Route path="/login" element={<Login />}/> */}
+                {/* <Route path="/logout" element={<Logout />}/>
+                <Route path="/profile/:id" element={<Profile />}/> */}
+                {/* ^from login route to this page, pass credentials through as props */}
             </Routes>
         </main>
     );

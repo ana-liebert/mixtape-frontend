@@ -1,25 +1,28 @@
 import { useEffect, useState } from "react";
-import {useParams} from "react-router-dom"
+import { useParams } from "react-router-dom"
 
-const Profile = () => {
+const Profile = (props) => {
 
     const [profile, setProfile] = useState(null);
+    const [credentials, setCredentials] = useState(null);
+
 
     // const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/profile/";
     const URL = "http://localhost:8000/mixtape/profile/";
 
     let thisProfile
-    const profileId = useParams()
-    const foundId = Number(profileId.id)
-    console.log(foundId)
+    const profileEmail = props.userEmail
+    console.log("email coming through to profile", profileEmail)
 
     const getProfile = async () => {
         const response = await fetch(URL);
         const data = await response.json();
-        console.log(data)
+        console.log("all the profiles", data)
 
-        thisProfile = data.find(taco => taco.id === foundId)
+        thisProfile = data.find(profile => profile.user.email === profileEmail)
+        console.log(thisProfile)
         setProfile(thisProfile);
+        setCredentials(props.credentials)
     };
 
     useEffect(() => getProfile(), []);
@@ -30,8 +33,9 @@ const Profile = () => {
 
         return (
             <div>
-                <h1>{profile.user.email}</h1>
+                <h1>{profile.user.email} {console.log("this is the user", profile.user)}</h1>
                 <h1>{profile.user.user_name}</h1>
+
 
                 {profile.favorites.map((mixes) => {
                     return (
@@ -40,32 +44,16 @@ const Profile = () => {
                         </h1>
                     )
                 })
-            }
+                }
 
-                
+
             </div>
         )
-        };
-        // return (profile.map((user) => (
-            
+    };
 
-        //     <div>
-        //         <h1>User:{user.user.user_name}
-        //         {console.log(user.user)}</h1>
-        //         <h1>Favorites:</h1>
-        //         {
-        //             user.favorites.map((mixes) => {
-        //                 return (
-        //         <h1>{mixes.title}</h1>
-        //                 )
-        //             })
-        //         }
-        //     </div>
-        // )))
-// };
-    
+
     const loading = () => {
-        return <h1>Loading...</h1>;
+        return <h1>Signup or Login</h1>;
     };
     return profile ? loaded() : loading()
 }
