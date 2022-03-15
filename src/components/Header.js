@@ -25,7 +25,7 @@ function Header() {
                     <Link to="/logout">
                         <div>Logout</div>
                     </Link>
-                    <Link to="/profile/4">
+                    <Link to="/profile">
                         <div>Profile</div>
                     </Link>
                 </div>

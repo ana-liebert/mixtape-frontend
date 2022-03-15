@@ -53,12 +53,6 @@ function Main(props) {
         getMixes();
     };
 
-// likeMix
-// I want to add to the userprofile 'favorites' field -- push the selected mix to the array
-// basic  version -- just a button 
-    // use state intial empty- set state to liked on click
-
-
 
     const createGenre = async genre => {
         
@@ -104,18 +98,7 @@ function Main(props) {
     }
 
 
-    // const updateUser = async user => {
-    //     await fetch(URL ,{
-    //         method: "put",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //         body.favorites: JSON.stringify
-    //     });
-    //     // update list
-    //     getGenres();
-    // };
-    // }
+
 
 
     useEffect(() => getMixes(), []);
@@ -130,12 +113,12 @@ function Main(props) {
                 {/* <Route path="/" element={<Catchall />} /> */}
                 <Route path="/mixes" element={<Home mixes={mixes}/>} />
                 <Route path="/mixes/create" element={<Create createMix={createMix} genres={genres} createGenre={createGenre} />}/>
-                <Route path="/mixes/:id" element={<MixDetail  />}/>
+                {/* <Route path="/mixes/:id" element={<MixDetail  />}/> */}
                 <Route path="/mixes/update/:id" element={<UpdateDelete genres={genres} deleteMix={deleteMix} updateMix={updateMix} />}/>
                 <Route path="/register" element={<Register />}/>
-                <Route path="/login" element={<Login />}/>
-                <Route path="/logout" element={<Logout />}/>
-                <Route path="/profile/:id" element={<Profile />}/>
+                {/* <Route path="/login" element={<Login />}/> */}
+                {/* <Route path="/logout" element={<Logout />}/>
+                <Route path="/profile/:id" element={<Profile />}/> */}
                 {/* ^from login route to this page, pass credentials through as props */}
             </Routes>
         </main>
