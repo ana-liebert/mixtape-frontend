@@ -31,14 +31,14 @@ function UpdateDelete(props) {
             title: "",
             description: "",
             host: "",
-            genre: [1],
+            genre: [7],
             image: "",
             soundcloudplayer: "",
             creator: "",
             tracklist: "",
     })
 
-    const [genreInput, setGenreInput] = useState({ genre: [1]})
+    const [genreInput, setGenreInput] = useState({ genre: [7]})
     
 
     const handleChange = event => {
@@ -91,7 +91,7 @@ function UpdateDelete(props) {
                         placeholder={mixes.host}
                         onChange={handleChange}
                     />
-                     <label>
+                    <label>
                 Select genre tags
                 </label>
                 {/* this only works when page is already loaded and then you add it in?? */}
@@ -124,7 +124,7 @@ function UpdateDelete(props) {
                     placeholder={mixes.creator}
                     onChange={handleChange}
                 />
-                  <input
+                <input
                     type="text"
                     value={editForm.tracklist}
                     name="tracklist"
