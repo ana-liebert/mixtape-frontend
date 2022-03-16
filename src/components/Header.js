@@ -1,38 +1,75 @@
 import { Link } from "react-router-dom";
-import React from 'react'
+import { useState } from 'react';
 
-function Header() {
+function Header(props) {
 
-    return (
-        <header>
+    let status = props.credentials
+    console.log(status)
+
+
+    const loggedIn = () => {
+
+
+            return (
+                <div>
+                    <header>
+                <nav className="nav navbar navbar-expand-lg navbar-light bg-light">
+                    <div className="nav container">
+                        <Link to="/mixes">
+                            <div>Home</div>
+                        </Link>
+                        <Link to="/discover">
+                            <div>Discover</div>
+                        </Link>
+                        <Link to="/hosts">
+                            <div>Hosts</div>
+                        </Link>
+                        <Link to="/profile">
+                            <div>My Mixtape</div>
+                        </Link>
+                        <Link to="/logout">
+                            <div>Logout</div>
+                        </Link>
+                    </div>
+                </nav>
+                
+            </header>
+                </div>
+            )
+        
+    }
+    
+    const loggedOut = () => {
+
+        return (
+            <div>
+                <header>
             <nav className="nav navbar navbar-expand-lg navbar-light bg-light">
                 <div className="nav container">
                     <Link to="/mixes">
-                        <div>HOME</div>
+                        <div>Home</div>
                     </Link>
                     <Link to="/discover">
-                        <div>DISCOVER</div>
+                        <div>Discover</div>
                     </Link>
                     <Link to="/hosts">
-                        <div>HOSTS</div>
-                    </Link>
-                    <Link to="/register">
-                        <div>Register</div>
+                        <div>Hosts</div>
                     </Link>
                     <Link to="/login">
-                        <div>Login</div>
-                    </Link>
-                    <Link to="/logout">
-                        <div>Logout</div>
-                    </Link>
-                    <Link to="/profile">
-                        <div>Profile</div>
+                        <div>My Mixtape</div>
                     </Link>
                 </div>
             </nav>
-            <h1>Welcome</h1>
+
         </header>
-    );
+            </div>
+        )
+    
+    }
+
+    return status ? loggedIn() : loggedOut()
+
 }
+
 
 export default Header

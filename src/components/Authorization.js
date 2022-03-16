@@ -7,6 +7,8 @@ import Profile from '../pages/ProfilePage';
 import Logout from './Logout';
 import MixDetail from "../pages/MixDetail";
 
+import Header from "./Header";
+
 const Authorization = () => {
 
     const navigate = useNavigate()
@@ -68,6 +70,7 @@ const Authorization = () => {
 
     return (
         <div>
+            <Header credentials={credentials} />
             <Routes>
                 <Route path="/login" element={<Login createCredentials={createCredentials}/>} />
                 <Route path="/logout" element={<Logout removeCredentials={removeCredentials} credentials={credentials}/>} />

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Profile = (props) => {
 
@@ -25,37 +26,66 @@ const Profile = (props) => {
         setCredentials(props.credentials)
     };
 
+
     useEffect(() => getProfile(), []);
 
 
+
     const loaded = () => {
-        <h1>User Profile</h1>
 
-        return (
-            <div>
-                <h1>{profile.user.email} {console.log("this is the user", profile.user)}</h1>
-                <h1>{profile.user.user_name}</h1>
+        let staff = profile.user.is_staff
+        console.log(staff)
 
 
-                {profile.favorites.map((mixes) => {
-                    return (
-                        <h1 key={mixes.title}>
-                            {mixes.title}
-                        </h1>
-                    )
-                })
-                }
+        if (staff == true) {
+            return (
+                <div>
+                    <h1>STAFF</h1>
+                    <h1>{profile.user.email} {console.log("this is the user", profile.user)}</h1>
+                    <h1>{profile.user.user_name}</h1>
+                    <Link to="/mixes/create">
+                            <button>New Post</button>
+                    </Link>
+                    
+                    {profile.favorites.map((mixes) => {
+                        return (
+                            <h1 key={mixes.title}>
+                                {mixes.title}
+                            </h1>
+                        )
+                    })
+                    }
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <h1>NOT STAFF</h1>
+                    <h1>{profile.user.email} {console.log("this is the user", profile.user)}</h1>
+                    <h1>{profile.user.user_name}</h1>
 
 
-            </div>
-        )
-    };
+
+                    {profile.favorites.map((mixes) => {
+                        return (
+                            <h1 key={mixes.title}>
+                                {mixes.title}
+                            </h1>
+                        )
+                    })
+                    }
+                </div>
+            );
+        }
+    }
 
 
     const loading = () => {
         return <h1>Signup or Login</h1>;
     };
+
     return profile ? loaded() : loading()
+
 }
 
 export default Profile
