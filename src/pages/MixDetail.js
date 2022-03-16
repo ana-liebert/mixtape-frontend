@@ -104,10 +104,17 @@ function MixDetail(props) {
                 <iframe className="mix-test" width="100%" height="20" scrolling="no" frameBorder="no" src={mixes.soundcloudplayer}></iframe>
                 <h1 className="mix-test">{mixes.title}</h1> 
                 <p className="mix-test">{mixes.description}</p>
+
+                <div className="buttons">
+
+                
+                <Button className="like" onClick={() => setLiked("Liked")}>{liked}</Button>
+                <br></br>
                 
                 <Link to={`/mixes/update/${mixes.id}`}>
                 <Button className="mix-test">Update</Button>
                         </Link>
+                        </div>
                 <form>
                 </form>
             </div>

@@ -19,7 +19,8 @@ function Home(props) {
                       alt={mix.title}/>
               <Carousel.Caption>
                 <div className="carousel-caption">
-                <h3 className="carousel-text">{mix.title}</h3>
+                <Link to={`/mixes/${mix.id}`}><h1 className="carousel-text">{mix.title}</h1></Link>
+                {/* <h3 className="carousel-text">{mix.title}</h3> */}
                 <h3 className="carousel-text">{mix.description}</h3>
                 </div>
                 </Carousel.Caption>
