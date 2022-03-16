@@ -13,22 +13,22 @@ function Header(props) {
             return (
                 <div>
                     <header>
-                <nav className="nav navbar navbar-expand-lg navbar-light bg-light">
+                <nav className="nav navbar navbar-expand-lg nav-style">
                     <div className="nav container">
                         <Link to="/mixes">
-                            <div>Home</div>
+                            <div>HOME</div>
                         </Link>
                         <Link to="/discover">
-                            <div>Discover</div>
+                            <div>DISCOVER</div>
                         </Link>
                         <Link to="/hosts">
-                            <div>Hosts</div>
+                            <div>HOSTS</div>
                         </Link>
                         <Link to="/profile">
-                            <div>My Mixtape</div>
+                            <div>MY MIXTAPE</div>
                         </Link>
                         <Link to="/logout">
-                            <div>Logout</div>
+                            <div>LOGOUT</div>
                         </Link>
                     </div>
                 </nav>
@@ -44,19 +44,19 @@ function Header(props) {
         return (
             <div>
                 <header>
-            <nav className="nav navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="nav navbar navbar-expand-lg nav-style">
                 <div className="nav container">
                     <Link to="/mixes">
-                        <div>Home</div>
+                        <div>HOME</div>
                     </Link>
                     <Link to="/discover">
-                        <div>Discover</div>
+                        <div>DISCOVER</div>
                     </Link>
                     <Link to="/hosts">
-                        <div>Hosts</div>
+                        <div>HOSTS</div>
                     </Link>
                     <Link to="/login">
-                        <div>My Mixtape</div>
+                        <div>MY MIXTAPE</div>
                     </Link>
                 </div>
             </nav>

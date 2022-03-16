@@ -7,11 +7,20 @@ function DiscoverPage(props) {
 
     // loaded function
     const loaded = () => {
-        return props.genres.map((genre) => (
-            <div key={genre.id} >
-                <Link to={`/discover/${genre.id}`}><h1>{genre.name}</h1></Link>
+        return (
+        <div>
+            <h1 className="genre-text-head">Explore Genres</h1>
+            <div className="container genre-container">
+                <div className="row">
+                {props.genres.map((genre) => (
+                    <div className="col-xl-3 col-md-4 col-sm-6 my-col" key={genre.id} >
+                        <Link to={`/discover/${genre.id}`}><h1 className="genre-text">{genre.name}</h1></Link>
+                    </div>
+                ))}
+                </div>
             </div>
-        ));
+        </div>
+        )
     };
 
     const loading = () => {

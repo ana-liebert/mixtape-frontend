@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import OwlCarousel from 'react-owl-carousel'
+import Carousel from 'react-bootstrap/Carousel'
+
 
 
 function Home(props) {
@@ -8,22 +9,25 @@ function Home(props) {
     // loaded function
     const loaded = () => {
       return (
-        <div>
-          <h1>Featured Mixes</h1>
-          <div className="carousel slide" data-ride="carousel">
-                <div className="carousel-inner">
-                <div className="carousel-item active">
-                    {props.mixes.map((mix) => {
+      <div>
+            <Carousel className="carousel-container">
+              {props.mixes.map((mix) => {
                     return (
-                      <img className="d-block w-100" src={mix.image} alt={mix.title}/>
+              <Carousel.Item interval={2000}>
+                      <img className="d-block w-100 cover-image"
+                      src={mix.image} 
+                      alt={mix.title}/>
+              <Carousel.Caption>
+                <div className="carousel-caption">
+                <h3 className="carousel-text">{mix.title}</h3>
+                <h3 className="carousel-text">{mix.description}</h3>
+                </div>
+                </Carousel.Caption>
+              </Carousel.Item>
                       )
-                    })};
-            </div>
-            </div>
-            </div>
-          
+                    })}
+            </Carousel>
 
-      
 
           <div className="container">
             <div className="row">
@@ -49,7 +53,8 @@ function Home(props) {
           })}
           </div>
           </div>
-        </div>
+    
+    </div>
       )
 
       

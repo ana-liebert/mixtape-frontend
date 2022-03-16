@@ -1,6 +1,6 @@
 body {
-  background-color: black;
-  color: white;
+  background-color: black !important;
+  font-family: 'Red Hat Display', sans-serif !important;
 }
 
 @keyframes App-logo-spin {
@@ -17,15 +17,81 @@ body {
   height:auto;
   opacity: 80%;
   position: relative;
-  margin: 0;
+  margin: 0px;
   background-size: cover;
   width: 100%px;
   overflow:hidden;
 }
 
+.carousel-container {
+  margin-bottom: 100px;
+}
+
+.carousel-caption {
+  margin-bottom: 50px;
+  text-align: left !important;
+  color: white;
+}
+.carousel-text {
+  background: black;
+  padding: 20px;
+  color: white;
+}
 .mixcard {
   max-width: 500px;
   height: 500px;
   margin: 20px;
-  color: black;
+  color: white;
+  background-color: black !important;
+  border-color: white !important;
+  padding: 20px;
+}
+
+
+.nav-style {
+  background-color: black !important;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 150px !important;
+  border: solid white 3px;
+  color: white !important;
+  font-family: 'Red Hat Display', sans-serif !important;
+  text-decoration: none !important;
+}
+
+a:link {
+  color: white;
+  text-decoration: none !important;
+}
+a:visited {
+  color: white;
+  text-decoration: none !important;
+}
+
+.genre-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60px;
+}
+
+.genre-text{
+  font-size: 20px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+}
+
+.genre-text-head{
+  font-size: 40px;
+  margin: 50px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: white;
+}
+
+.genre-text:hover {
+  text-decoration: underline;
+  color: white;
 }
