@@ -7,12 +7,33 @@ function HostIndex(props) {
 
     // loaded function
     const loaded = () => {
-        return props.hosts.map((host) => (
-            <div class="card" key={host.id} >
-                <Link to={`/hosts/${host.id}`}><h1>{host.name}</h1></Link>
-                <img src={host.image}/>
+        // return props.hosts.map((host) => (
+        //     <div class="card host-card" key={host.id} >
+        //         <Link to={`/hosts/${host.id}`}><h1>{host.name}</h1></Link>
+        //         <img src={host.image}/>
+        //     </div>
+        // ));
+
+        return (
+            <div>
+                <h1 className="genre-text-head">Get to know our hosts</h1>
+                <div className="container">
+                    <div className="row">
+                    {props.hosts.map((host) => (
+                        <Link to={`/hosts/${host.id}`} className="col-xl-6 mycol">
+                        <div className="card host-card" key={host.id} >
+                            <h1 className="host-name">{host.name}</h1>
+                            <img src={host.image}/>
+                        </div>
+                        </Link>
+                    ))}
+                    </div>
+                </div>
             </div>
-        ));
+            )
+
+
+
     };
 
     const loading = () => {

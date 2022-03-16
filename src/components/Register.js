@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import axiosInstance  from '../axios';
 import { useHistory } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
-// usehistory is used to make a redirect. swap for navigate
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/esm/Button';
 
 
 export default function SignUp() {
@@ -45,29 +46,52 @@ export default function SignUp() {
     };
 
     return (
-        <form>
-            <input 
+
+        <div className="form-container">
+        <Form>
+            <h1>Sign Up</h1>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control 
             name="email" 
             type="email" 
             label="Email" 
             id="email" 
             onChange={handleChange}
             />
-            <input 
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>User Name</Form.Label>
+            <Form.Control 
             name="username" 
-            type="username" 
-            label="Username" 
-            id="username" 
-            onChange={handleChange}
+                type="username" 
+                label="Username" 
+                id="username" 
+                onChange={handleChange}
             />
-            <input 
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
             name="password" 
             type="password" 
             label="Password" 
             id="password" 
             onChange={handleChange}
             />
-            <button type="submit" onClick={handleSubmit}>Sign Up</button>
-        </form>
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check type="checkbox" label="Remeber Me" />
+        </Form.Group>
+
+
+        <Button variant="primary" type="submit" onClick={handleSubmit}>
+            Submit
+        </Button>
+        </Form>
+        </div>
+
     )
 }

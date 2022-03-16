@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import axiosInstance from '../axios';
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
+import Button from 'react-bootstrap/esm/Button';
 
 
 export default function Logout(props) {
@@ -32,6 +33,6 @@ export default function Logout(props) {
 
     return <div>
         <h1>Logout</h1>
-        <button onClick={handleClick}>Logout</button>
+        <Button onClick={handleClick}>Logout</Button>
         </div>
 }

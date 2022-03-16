@@ -30,6 +30,7 @@ function Home(props) {
 
 
           <div className="container">
+            <h1 className="genre-text-head">Recent Mixes</h1>
             <div className="row">
           {props.mixes.map((mix) => {
             return (

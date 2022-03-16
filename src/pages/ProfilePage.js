@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 const Profile = (props) => {
 
@@ -40,40 +41,68 @@ const Profile = (props) => {
         if (staff == true) {
             return (
                 <div>
-                    <h1>STAFF</h1>
-                    <h1>{profile.user.email} {console.log("this is the user", profile.user)}</h1>
-                    <h1>{profile.user.user_name}</h1>
-                    <Link to="/mixes/create">
-                            <button>New Post</button>
-                    </Link>
-                    
-                    {profile.favorites.map((mixes) => {
-                        return (
-                            <h1 key={mixes.title}>
-                                {mixes.title}
-                            </h1>
-                        )
-                    })
-                    }
+                    <div className="profile-head">
+                        <h1>Welcome, {profile.user.user_name}</h1>
+                        <Link to="/mixes/create">
+                            <Button>Create New Post</Button>
+                        </Link>
+                    </div>
+
+
+                    <div className="container">
+                        <h1 className="genre-text-head">Favorites</h1>
+                        <div className="row">
+                            {profile.favorites.map((mixes) => {
+                                return (
+                                    <div className="col-md-7">
+                                        <div className="card mixcard" key={mixes.id}>
+                                            <Link to={`/mixes/${mixes.id}`}><h1>{mixes.title}</h1></Link>
+                                            <p>{mixes.description}</p>
+                                            <img src={mixes.image} alt={mixes.title} />
+
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>
+
                 </div>
             );
         } else {
             return (
                 <div>
-                    <h1>NOT STAFF</h1>
-                    <h1>{profile.user.email} {console.log("this is the user", profile.user)}</h1>
-                    <h1>{profile.user.user_name}</h1>
+                    <div className="profile-head">
+                    <h1>Welcome, {profile.user.user_name}</h1>
+                    </div>
+                    <div className="container">
+                        <h1 className="genre-text-head">Favorites</h1>
+                        <div className="row">
+                            {profile.favorites.map((mixes) => {
+                                return (
+                                    <div className="col-md-6">
+                                        <div className="card mixcard" key={mixes.id}>
+                                            <Link to={`/mixes/${mixes.id}`}><h1>{mixes.title}</h1></Link>
+                                            <p>{mixes.description}</p>
+                                            <img src={mixes.image} alt={mixes.title} />
+
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>
 
 
 
-                    {profile.favorites.map((mixes) => {
+                    {/* {profile.favorites.map((mixes) => {
                         return (
                             <h1 key={mixes.title}>
                                 {mixes.title}
                             </h1>
                         )
                     })
-                    }
+                    } */}
                 </div>
             );
         }
@@ -81,7 +110,7 @@ const Profile = (props) => {
 
 
     const loading = () => {
-        return <h1>Signup or Login</h1>;
+        return <h1>No Profile Created Yet</h1>;
     };
 
     return profile ? loaded() : loading()
