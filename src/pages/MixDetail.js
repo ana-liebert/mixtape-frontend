@@ -2,6 +2,7 @@ import React from "react"
 import {useParams} from "react-router-dom"
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
+import Button from "react-bootstrap/esm/Button";
 
 function MixDetail(props) {
     const [mixes, setMixes] = useState(null);
@@ -98,14 +99,14 @@ function MixDetail(props) {
     const loaded = () => {
 
         return (
-            <div>
+            <div className="mix-detail">
                 <img src={mixes.image}/>
-                <h1>Title: {mixes.title}</h1> 
-                <p>Description: {mixes.description}</p>
-                <iframe width="100%" height="20" scrolling="no" frameBorder="no" src={mixes.soundcloudplayer}></iframe>
+                <iframe className="mix-test" width="100%" height="20" scrolling="no" frameBorder="no" src={mixes.soundcloudplayer}></iframe>
+                <h1 className="mix-test">{mixes.title}</h1> 
+                <p className="mix-test">{mixes.description}</p>
                 
                 <Link to={`/mixes/update/${mixes.id}`}>
-                <button>Update</button>
+                <Button className="mix-test">Update</Button>
                         </Link>
                 <form>
                 </form>

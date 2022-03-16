@@ -148,3 +148,15 @@ a:visited {
   margin: 30px;
   text-decoration: underline;
 }
+
+ .mix-detail{
+  text-align: left;
+  color: white;
+
+}
+.mix-test, .update {
+  font-size: 30px;
+  text-align: left;
+  color: white;
+  margin: 20px;
+}
