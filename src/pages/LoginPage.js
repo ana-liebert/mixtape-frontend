@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import axiosInstance  from '../axios';
 import { useHistory } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
-// usehistory is used to make a redirect. swap for navigate
+import { Link } from "react-router-dom";
+
 
 
 export default function LogIn(props) {
@@ -43,6 +44,7 @@ export default function LogIn(props) {
 
 
     return (
+        <div>
         <form>
             <input 
             name="email" 
@@ -60,5 +62,9 @@ export default function LogIn(props) {
             />
             <button type="submit" onClick={handleSubmit}>Log In</button>
         </form>
+        <Link to="/register">
+        <div>Sign Up</div>
+        </Link>
+        </div>
     )
 }
