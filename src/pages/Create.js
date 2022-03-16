@@ -93,7 +93,7 @@ function Create(props) {
            {/* {Timer()} */}
 
 
-           <Form>
+           <Form className="update"> 
             <h1>Update</h1>
         <Form.Group className="mb-3" >
             <Form.Label>Title</Form.Label>
@@ -169,6 +169,9 @@ function Create(props) {
                         </option>
                     )}
                 </select>
+                
+                <br>
+                </br>
 
         <Button variant="primary" type="submit" onClick={handleSubmit}>
             Submit
