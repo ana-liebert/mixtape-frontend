@@ -9,7 +9,6 @@ import Catchall from "./Catchall";
 import Register from "./Register";
 import Login from "./Login";
 import Logout from "./Logout";
-
 import Profile from "../pages/Profile";
 
 
@@ -110,16 +109,11 @@ function Main(props) {
     return (
         <main>
             <Routes>
-                {/* <Route path="/" element={<Catchall />} /> */}
                 <Route path="/mixes" element={<Home mixes={mixes}/>} />
                 <Route path="/mixes/create" element={<Create createMix={createMix} genres={genres} createGenre={createGenre} />}/>
                 {/* <Route path="/mixes/:id" element={<MixDetail  />}/> */}
                 <Route path="/mixes/update/:id" element={<UpdateDelete genres={genres} deleteMix={deleteMix} updateMix={updateMix} />}/>
                 <Route path="/register" element={<Register />}/>
-                {/* <Route path="/login" element={<Login />}/> */}
-                {/* <Route path="/logout" element={<Logout />}/>
-                <Route path="/profile/:id" element={<Profile />}/> */}
-                {/* ^from login route to this page, pass credentials through as props */}
             </Routes>
         </main>
     );

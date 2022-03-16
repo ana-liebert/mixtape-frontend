@@ -1,11 +1,50 @@
 import { Link } from "react-router-dom";
-import React from 'react'
+import { useState } from 'react';
 
-function Header() {
+function Header(props) {
 
-    return (
-        <header>
-            <nav className="nav navbar navbar-expand-lg navbar-light bg-light">
+    let status = props.credentials
+    console.log(status)
+
+
+    const loggedIn = () => {
+
+
+            return (
+                <div>
+                    <header>
+                <nav className="nav navbar navbar-expand-lg nav-style">
+                    <div className="nav container">
+                        <Link to="/mixes">
+                            <div>HOME</div>
+                        </Link>
+                        <Link to="/discover">
+                            <div>DISCOVER</div>
+                        </Link>
+                        <Link to="/hosts">
+                            <div>HOSTS</div>
+                        </Link>
+                        <Link to="/profile">
+                            <div>MY MIXTAPE</div>
+                        </Link>
+                        <Link to="/logout">
+                            <div>LOGOUT</div>
+                        </Link>
+                    </div>
+                </nav>
+                
+            </header>
+                </div>
+            )
+        
+    }
+    
+    const loggedOut = () => {
+
+        return (
+            <div>
+                <header>
+            <nav className="nav navbar navbar-expand-lg nav-style">
                 <div className="nav container">
                     <Link to="/mixes">
                         <div>HOME</div>
@@ -16,23 +55,21 @@ function Header() {
                     <Link to="/hosts">
                         <div>HOSTS</div>
                     </Link>
-                    <Link to="/register">
-                        <div>Register</div>
-                    </Link>
                     <Link to="/login">
-                        <div>Login</div>
-                    </Link>
-                    <Link to="/logout">
-                        <div>Logout</div>
-                    </Link>
-                    <Link to="/profile">
-                        <div>Profile</div>
+                        <div>MY MIXTAPE</div>
                     </Link>
                 </div>
             </nav>
-            <h1>Welcome</h1>
+
         </header>
-    );
+            </div>
+        )
+    
+    }
+
+    return status ? loggedIn() : loggedOut()
+
 }
+
 
 export default Header

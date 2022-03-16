@@ -1,6 +1,7 @@
 import React from "react"
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom";
 
 function GenreIndex(props) {
     
@@ -31,10 +32,11 @@ function GenreIndex(props) {
 
     const loaded = () => {
         return mixes.map((mix) => (
-            <div key={mix.id} className="mix">
+            <div className="card host-card" key={mix.id}>
                 <img src={mix.image} alt={mix.title} />
+                <Link to={`/mixes/${mix.id}`}><h1>{mix.title}</h1></Link>
                 <h3>{mix.description}</h3>
-                <h3></h3>
+                <iframe className="mix-test" width="100%" height="20" scrolling="no" frameBorder="no" src={mix.soundcloudplayer}></iframe>
             </div>
         ));
     };

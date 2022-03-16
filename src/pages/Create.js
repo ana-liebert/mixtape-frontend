@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
-
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/esm/Button';
 
 function Create(props) {
 
@@ -24,7 +25,7 @@ function Create(props) {
             title: "",
             description: "",
             host: "",
-            genre: [1],
+            genre: [4],
             image: "",
             soundcloudplayer: "",
             creator: "",
@@ -39,7 +40,7 @@ function Create(props) {
     }
 
     const [genreInput, setGenreInput] = useState({
-        genre: [1]
+        genre: [4]
     });
 
     useEffect(() => getMixes(), []);
@@ -78,7 +79,7 @@ function Create(props) {
             title: "",
             description: "",
             host: "",
-            genre: [1],
+            genre: [4],
             image: "",
             soundcloudplayer: "",
             creator: "",
@@ -90,7 +91,99 @@ function Create(props) {
         return (
         <section>
            {/* {Timer()} */}
-            <form onSubmit={handleSubmit}>
+
+
+           <Form className="update"> 
+            <h1>Update</h1>
+        <Form.Group className="mb-3" >
+            <Form.Label>Title</Form.Label>
+            <Form.Control 
+             type="text"
+             value={newForm.title}
+             name="title"
+             placeholder={mixes.title}
+             onChange={handleChange}
+            />
+        </Form.Group>
+
+        <Form.Group className="mb-3" >
+            <Form.Label>Description</Form.Label>
+            <Form.Control
+             type="text"
+             value={newForm.description}
+             name="description"
+             placeholder={mixes.description}
+             onChange={handleChange}
+            />
+        </Form.Group>
+
+        <Form.Group className="mb-3" >
+            <Form.Label>Host</Form.Label>
+            <Form.Control
+             type="text"
+             value={newForm.host}
+             name="host"
+             placeholder={mixes.host}
+             onChange={handleChange}
+            />
+        </Form.Group>
+
+        <Form.Group className="mb-3" >
+            <Form.Label>Image</Form.Label>
+            <Form.Control
+             type="text"
+             value={newForm.image}
+             name="image"
+             placeholder={mixes.image}
+             onChange={handleChange}
+            />
+        </Form.Group>
+
+        <Form.Group className="mb-3" >
+            <Form.Label>soundcloudplayer</Form.Label>
+            <Form.Control
+             type="text"
+             value={newForm.soundcloudplayer}
+             name="soundcloudplayer"
+             placeholder={mixes.soundcloudplayer}
+             onChange={handleChange}
+            />
+        </Form.Group>
+
+        <Form.Group className="mb-3" >
+            <Form.Label>Creator</Form.Label>
+            <Form.Control
+             type="text"
+             value={newForm.creator}
+             name="creator"
+             placeholder={mixes.creator}
+             onChange={handleChange}
+            />
+        </Form.Group>
+
+        <select multiple onChange={(event) => setGenreInput(event.target.value)} value={genreInput}>
+                    
+                    {props.genres.map(
+                        (genre) => <option key={genre.id} value={genre.id}>
+                            {genre.name}
+                        </option>
+                    )}
+                </select>
+                
+                <br>
+                </br>
+
+        <Button variant="primary" type="submit" onClick={handleSubmit}>
+            Submit
+        </Button>
+        
+        </Form>
+
+
+
+
+
+            {/* <form onSubmit={handleSubmit}>
                 <input
                     type="text"
                     value={newForm.title}
@@ -116,7 +209,7 @@ function Create(props) {
                 <label>
                 Select genre tags
                 </label>
-                {/* this only works when page is already loaded and then you add it in?? */}
+                this only works when page is already loaded and then you add it in??
                 
                 <select onChange={(event) => setGenreInput(event.target.value)} value={genreInput}>
             
@@ -128,12 +221,7 @@ function Create(props) {
                 
                 </select>
 
-                {/* <select id="dropdown">
-                    
-                    <option value={newForm.genre} onChange={handleGenreChange}>1</option>
-                    <option value={newForm.genre} onChange={handleGenreChange}>2</option>
-                    <option value={newForm.genre} onChange={handleGenreChange}>3</option>
-                </select> */}
+            
 
                 <input
                     type="text"
@@ -167,7 +255,7 @@ function Create(props) {
 
 
                 <input type="submit" value="Create Mix" />
-            </form>
+            </form> */}
             </section>
     )
 }

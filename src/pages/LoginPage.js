@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import axiosInstance  from '../axios';
 import { useHistory } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
-// usehistory is used to make a redirect. swap for navigate
+import { Link } from "react-router-dom";
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/esm/Button';
+
 
 
 export default function LogIn(props) {
@@ -43,7 +46,51 @@ export default function LogIn(props) {
 
 
     return (
-        <form>
+        <div>
+
+
+        <div className="form-container">
+        <Form>
+            <h1>Login</h1>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control 
+            name="email" 
+            type="email" 
+            label="Email" 
+            id="email" 
+            onChange={handleChange}
+            />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+            name="password" 
+            type="password" 
+            label="Password" 
+            id="password" 
+            onChange={handleChange}
+            />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check type="checkbox" label="Remeber Me" />
+        </Form.Group>
+
+
+        <Button variant="primary" type="submit" onClick={handleSubmit}>
+            Submit
+        </Button>
+        <Link to="/register">
+        <div className="signUp">Don't have an account? Sign Up</div>
+        </Link>
+        </Form>
+        </div>
+
+
+
+
+        {/* <form>
             <input 
             name="email" 
             type="email" 
@@ -60,5 +107,9 @@ export default function LogIn(props) {
             />
             <button type="submit" onClick={handleSubmit}>Log In</button>
         </form>
+        <Link to="/register">
+        <div>Sign Up</div>
+        </Link> */}
+        </div>
     )
 }

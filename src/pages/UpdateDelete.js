@@ -2,6 +2,8 @@ import React from "react"
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/esm/Button';
 
 function UpdateDelete(props) {
     const [mixes, setMixes] = useState(null);
@@ -31,14 +33,14 @@ function UpdateDelete(props) {
             title: "",
             description: "",
             host: "",
-            genre: [1],
+            genre: [7],
             image: "",
             soundcloudplayer: "",
             creator: "",
             tracklist: "",
     })
 
-    const [genreInput, setGenreInput] = useState({ genre: [1]})
+    const [genreInput, setGenreInput] = useState({ genre: [7]})
     
 
     const handleChange = event => {
@@ -65,11 +67,99 @@ function UpdateDelete(props) {
 
     const loaded = () => {
         return (
-            <div>
+            <div className="update">
                 <img src={mixes.image} />
                 <h1>{mixes.title}</h1>
                 <p>{mixes.description}</p>
-                <form onSubmit={handleSubmit}>
+
+
+
+                <Form>
+            <h1>Update</h1>
+        <Form.Group className="mb-3" >
+            <Form.Label>Title</Form.Label>
+            <Form.Control 
+             type="text"
+             value={editForm.title}
+             name="title"
+             placeholder={mixes.title}
+             onChange={handleChange}
+            />
+        </Form.Group>
+
+        <Form.Group className="mb-3" >
+            <Form.Label>Description</Form.Label>
+            <Form.Control
+             type="text"
+             value={editForm.description}
+             name="description"
+             placeholder={mixes.description}
+             onChange={handleChange}
+            />
+        </Form.Group>
+
+        <Form.Group className="mb-3" >
+            <Form.Label>Host</Form.Label>
+            <Form.Control
+             type="text"
+             value={editForm.host}
+             name="host"
+             placeholder={mixes.host}
+             onChange={handleChange}
+            />
+        </Form.Group>
+
+        <Form.Group className="mb-3" >
+            <Form.Label>Image</Form.Label>
+            <Form.Control
+             type="text"
+             value={editForm.image}
+             name="image"
+             placeholder={mixes.image}
+             onChange={handleChange}
+            />
+        </Form.Group>
+
+       
+        <Form.Group className="mb-3" >
+            <Form.Label>soundcloudplayer</Form.Label>
+            <Form.Control
+             type="text"
+             value={editForm.soundcloudplayer}
+             name="soundcloudplayer"
+             placeholder={mixes.soundcloudplayer}
+             onChange={handleChange}
+            />
+        </Form.Group>
+
+        <Form.Group className="mb-3" >
+            <Form.Label>Creator</Form.Label>
+            <Form.Control
+             type="text"
+             value={editForm.creator}
+             name="creator"
+             placeholder={mixes.creator}
+             onChange={handleChange}
+            />
+        </Form.Group>
+
+        <select multiple onChange={(event) => setGenreInput(event.target.value)} value={genreInput}>
+                    
+                    {props.genres.map(
+                        (genre) => <option key={genre.id} value={genre.id}>
+                            {genre.name}
+                        </option>
+                    )}
+                </select>
+
+        <Button variant="primary" type="submit" onClick={handleSubmit}>
+            Submit
+        </Button>
+        <Button id="delete" onClick={removeMix}>Delete</Button>
+        </Form>
+
+
+                {/* <form onSubmit={handleSubmit}>
                     <input
                         type="text"
                         value={editForm.title}
@@ -86,15 +176,22 @@ function UpdateDelete(props) {
                     />
                     <input
                         type="text"
-                        value={editForm.host}
-                        name="host"
-                        placeholder={mixes.host}
+                        value={editForm.soundcloudplayer}
+                        name="soundcloudplayer"
+                        placeholder={mixes.soundcloudplayer}
                         onChange={handleChange}
                     />
-                     <label>
+                      <input
+                        type="text"
+                        value={editForm.tracklist}
+                        name="tracklist"
+                        placeholder={mixes.tracklist}
+                        onChange={handleChange}
+                    />
+                    <label>
                 Select genre tags
                 </label>
-                {/* this only works when page is already loaded and then you add it in?? */}
+                this only works when page is already loaded and then you add it in??
                 <select multiple onChange={(event) => setGenreInput(event.target.value)} value={genreInput}>
                     
                     {props.genres.map(
@@ -124,7 +221,7 @@ function UpdateDelete(props) {
                     placeholder={mixes.creator}
                     onChange={handleChange}
                 />
-                  <input
+                <input
                     type="text"
                     value={editForm.tracklist}
                     name="tracklist"
@@ -133,7 +230,7 @@ function UpdateDelete(props) {
                 />
                     <input type="submit" value="Update Mix" />
                 </form>
-                <button id="delete" onClick={removeMix}>DELETE</button>
+                <button id="delete" onClick={removeMix}>DELETE</button> */}
             </div>
         )
     }

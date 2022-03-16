@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       <Authorization />
       <Main />
       <Discover />
