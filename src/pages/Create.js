@@ -24,7 +24,7 @@ function Create(props) {
             title: "",
             description: "",
             host: "",
-            genre: [1],
+            genre: [4],
             image: "",
             soundcloudplayer: "",
             creator: "",
@@ -39,7 +39,7 @@ function Create(props) {
     }
 
     const [genreInput, setGenreInput] = useState({
-        genre: [1]
+        genre: [4]
     });
 
     useEffect(() => getMixes(), []);
@@ -78,7 +78,7 @@ function Create(props) {
             title: "",
             description: "",
             host: "",
-            genre: [1],
+            genre: [4],
             image: "",
             soundcloudplayer: "",
             creator: "",
