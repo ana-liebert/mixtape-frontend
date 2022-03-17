@@ -69,7 +69,7 @@ function UpdateDelete(props) {
     const loaded = () => {
         return (
             <div className="update">
-                <img alt={} src={mixes.image} />
+                <img alt="" src={mixes.image} />
                 <h1>{mixes.title}</h1>
                 <p>{mixes.description}</p>
 
