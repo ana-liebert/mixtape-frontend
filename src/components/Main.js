@@ -23,8 +23,8 @@ function Main(props) {
 
     const [genres, setGenres] = useState(null);
 
-    // const URLGENRE = "https://aliebert-mixtape.herokuapp.com/mixtape/discover/";
-    const URLGENRE = "http://localhost:8000/mixtape/discover/";
+    const URLGENRE = "https://aliebert-mixtape.herokuapp.com/mixtape/discover/";
+    // const URLGENRE = "http://localhost:8000/mixtape/discover/";
 
     const getGenres = async () => {
         const response = await fetch(URLGENRE);
