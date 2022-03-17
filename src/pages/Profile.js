@@ -5,8 +5,8 @@ const Profile = () => {
 
     const [profile, setProfile] = useState(null);
 
-    // const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/profile/";
-    const URL = "http://localhost:8000/mixtape/profile/";
+    const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/profile/";
+    // const URL = "http://localhost:8000/mixtape/profile/";
 
     let thisProfile
     const profileId = useParams()
@@ -22,7 +22,8 @@ const Profile = () => {
         setProfile(thisProfile);
     };
 
-    useEffect(() => getProfile(), []);
+    useEffect(() => getProfile());
+    // removed []
 
 
     const loaded = () => {

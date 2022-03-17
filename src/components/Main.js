@@ -1,23 +1,18 @@
 import { useEffect, useState } from "react";
-import { Route, Routes, useParams } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
-import MixDetail from "../pages/MixDetail";
 import Create from "../pages/Create";
 import UpdateDelete from "../pages/UpdateDelete";
-import Catchall from "./Catchall";
-
 import Register from "./Register";
-import Login from "./Login";
-import Logout from "./Logout";
-import Profile from "../pages/Profile";
+
 
 
 function Main(props) {
 
     const [mixes, setMixes] = useState(null);
 
-    // const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/mixes/";
-    const URL = "http://localhost:8000/mixtape/mixes/";
+    const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/mixes/";
+    // const URL = "http://localhost:8000/mixtape/mixes/";
 
     const getMixes = async () => {
         const response = await fetch(URL);
@@ -111,7 +106,6 @@ function Main(props) {
             <Routes>
                 <Route path="/mixes" element={<Home mixes={mixes}/>} />
                 <Route path="/mixes/create" element={<Create createMix={createMix} genres={genres} createGenre={createGenre} />}/>
-                {/* <Route path="/mixes/:id" element={<MixDetail  />}/> */}
                 <Route path="/mixes/update/:id" element={<UpdateDelete genres={genres} deleteMix={deleteMix} updateMix={updateMix} />}/>
                 <Route path="/register" element={<Register />}/>
             </Routes>

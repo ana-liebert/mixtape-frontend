@@ -7,8 +7,8 @@ import HostDetail from '../pages/HostDetail'
 function Hosts(props) {
     const [hosts, setHosts] = useState(null);
 
-    // const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/";
-    const URL = "http://localhost:8000/mixtape/";
+    const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/";
+    // const URL = "http://localhost:8000/mixtape/";
 
     const getHosts = async () => {
         const response = await fetch(URL + "hosts");

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Route, Routes, useParams } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import DiscoverPage from "../pages/DiscoverPage";
 import GenreIndex from "../pages/GenreIndex";
 
@@ -7,8 +7,8 @@ import GenreIndex from "../pages/GenreIndex";
 function Discover(props) {
     const [genres, setGenres] = useState(null);
 
-    // const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/discover/";
-    const URL = "http://localhost:8000/mixtape/discover";
+    const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/discover/";
+    // const URL = "http://localhost:8000/mixtape/discover";
 
     const getGenres = async () => {
         const response = await fetch(URL);

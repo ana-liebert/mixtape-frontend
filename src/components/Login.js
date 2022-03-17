@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axiosInstance  from '../axios';
-import { useHistory } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 // usehistory is used to make a redirect. swap for navigate
 
@@ -57,6 +56,7 @@ export default function SignIn() {
                 console.log(res);
                 console.log(res.data);
                 setCredentials(res.data)
+                console.log(credentials)
                 console.log("you are logged in");
             })
     };

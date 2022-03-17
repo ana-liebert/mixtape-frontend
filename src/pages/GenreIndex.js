@@ -7,8 +7,8 @@ function GenreIndex(props) {
     
     const [mixes, setMixes] = useState(null);
 
-    // const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/mixes/";
-    const URL = "http://localhost:8000/mixtape/mixtape/mixes";
+    const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/mixes/";
+    // const URL = "http://localhost:8000/mixtape/mixtape/mixes";
     let foundMixes
     const genreId = useParams()
     const foundGenreId = Number(genreId.id)
@@ -27,7 +27,8 @@ function GenreIndex(props) {
         console.log("these are the mixes for genre filter", foundMixes)
     };
 
-    useEffect(() => getMixes(), []);
+    useEffect(() => getMixes());
+    // what is the issue here???? trying to remove the []
 
 
     const loaded = () => {
@@ -36,7 +37,7 @@ function GenreIndex(props) {
                 <img src={mix.image} alt={mix.title} />
                 <Link to={`/mixes/${mix.id}`}><h1>{mix.title}</h1></Link>
                 <h3>{mix.description}</h3>
-                <iframe className="mix-test" width="100%" height="20" scrolling="no" frameBorder="no" src={mix.soundcloudplayer}></iframe>
+                <iframe className="mix-test" width="100%" height="20" scrolling="no" title="mixtape" frameBorder="no" src={mix.soundcloudplayer}></iframe>
             </div>
         ));
     };

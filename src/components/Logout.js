@@ -20,10 +20,11 @@ export default function Logout(props) {
         axiosInstance.defaults.headers['Authorization'] = null;
         console.log("you are logged out")
         setCredentials(null)
+        console.log(response)
         // setUserEmail(null)
         // console.log(userEmail)
         // navigate('/mixes');
-    });
+    }, []);
 
     const handleClick = (e) => {
         e.preventDefault();

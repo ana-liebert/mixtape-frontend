@@ -23,7 +23,7 @@ function HostIndex(props) {
                         <Link to={`/hosts/${host.id}`} className="col-xl-6 mycol">
                         <div className="card host-card" key={host.id} >
                             <h1 className="host-name">{host.name}</h1>
-                            <img src={host.image}/>
+                            <img alt="" src={host.image}/>
                         </div>
                         </Link>
                     ))}

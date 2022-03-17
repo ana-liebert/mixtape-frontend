@@ -7,13 +7,14 @@ import Button from "react-bootstrap/esm/Button";
 function MixDetail(props) {
     const [mixes, setMixes] = useState(null);
 
-    // const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/";
-    const URL = "http://localhost:8000/mixtape/";
+    const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/";
+    // const URL = "http://localhost:8000/mixtape/";
 
     let thisProfile
     let profileEmail
 
-    const URLPROF = "http://localhost:8000/mixtape/profile/";
+    // const URLPROF = "http://localhost:8000/mixtape/profile/";
+    const URLPROF = "https://aliebert-mixtape.herokuapp.com/mixtape/profile/";
     
     const [favorites, setFavorites] = useState("")
     const [profile, setProfile] = useState(null)
@@ -29,6 +30,8 @@ function MixDetail(props) {
         setFavorites(thisProfile.favorites);
         setProfile(thisProfile)
         console.log("stinkerbell", thisProfile.user.is_staff)
+        console.log(profile)
+
     };
 
     // useEffect(() => {
@@ -75,20 +78,21 @@ function MixDetail(props) {
 
     let [newArray, setNewArray] = useState("");
 
-    let arr1 = favorites
-    let arr2 = mixes
-    let arr3 = arr1.concat(arr2);
-    console.log(arr3)
-    
-    
-    const handleClick = (event) => {
-        setNewArray(arr3)
-        props.updateFavorites(newArray)
-    }
+
+
+    // let arr1 = favorites
+    // let arr2 = mixes
+    // let arr3 = arr1.concat(arr2);
+    // console.log(arr3)
+    // const handleClick = (event) => {
+    //     setNewArray(arr3)
+    //     props.updateFavorites(newArray)
+    // }
     
 
-    useEffect(() => getMixes(), []);
-    useEffect(() => getProfileData(), []);
+    useEffect(() => getMixes());
+    useEffect(() => getProfileData());
+    // removed [] on both
 
 
 
@@ -100,8 +104,8 @@ function MixDetail(props) {
 
         return (
             <div className="mix-detail">
-                <img src={mixes.image}/>
-                <iframe className="mix-test" width="100%" height="20" scrolling="no" frameBorder="no" src={mixes.soundcloudplayer}></iframe>
+                <img alt="" src={mixes.image}/>
+                <iframe className="mix-test" width="100%" height="20" scrolling="no" frameBorder="no" title="mixtape" src={mixes.soundcloudplayer}></iframe>
                 <h1 className="mix-test">{mixes.title}</h1> 
                 <p className="mix-test">{mixes.description}</p>
 

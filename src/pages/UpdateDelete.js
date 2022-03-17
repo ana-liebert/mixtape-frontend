@@ -10,8 +10,8 @@ function UpdateDelete(props) {
 
     const navigate = useNavigate()
 
-    // const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/mixes/";
-    const URL = "http://localhost:8000/mixtape/mixes/";
+    const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/mixes/";
+    // const URL = "http://localhost:8000/mixtape/mixes/";
     let thisMix
     const mixId = useParams()
     const foundId = Number(mixId.id)
@@ -63,12 +63,13 @@ function UpdateDelete(props) {
 
 
 
-    useEffect(() => getMixes(), []);
+    useEffect(() => getMixes());
+    // removed , []
 
     const loaded = () => {
         return (
             <div className="update">
-                <img src={mixes.image} />
+                <img alt={} src={mixes.image} />
                 <h1>{mixes.title}</h1>
                 <p>{mixes.description}</p>
 

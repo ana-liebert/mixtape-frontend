@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 
@@ -9,8 +8,8 @@ const Profile = (props) => {
     const [credentials, setCredentials] = useState(null);
 
 
-    // const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/profile/";
-    const URL = "http://localhost:8000/mixtape/profile/";
+    const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/profile/";
+    // const URL = "http://localhost:8000/mixtape/profile/";
 
     let thisProfile
     const profileEmail = props.userEmail
@@ -25,10 +24,12 @@ const Profile = (props) => {
         console.log(thisProfile)
         setProfile(thisProfile);
         setCredentials(props.credentials)
+        console.log(credentials)
     };
 
 
-    useEffect(() => getProfile(), []);
+    useEffect(() => getProfile());
+    // removed []
 
 
 
@@ -38,7 +39,7 @@ const Profile = (props) => {
         console.log(staff)
 
 
-        if (staff == true) {
+        if (staff === true) {
             return (
                 <div>
                     <div className="profile-head">

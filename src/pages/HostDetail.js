@@ -5,8 +5,8 @@ import { useState, useEffect } from "react"
 function HostDetail(props) {
     const [hosts, setHosts] = useState(null);
 
-    // const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/";
-    const URL = "http://localhost:8000/mixtape/";
+    const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/";
+    // const URL = "http://localhost:8000/mixtape/";
     let foundHost
     const hostId = useParams()
     const foundHostId = Number(hostId.id)
@@ -22,12 +22,13 @@ function HostDetail(props) {
         // console.log("this is the found host", foundHost)
     };
 
-    useEffect(() => getHosts(), []);
+    useEffect(() => getHosts());
+    // removed the empty array ,[]
 
     const loaded = () => {
         return (
             <div>
-                <img src={hosts.image}/>
+                <img alt="" src={hosts.image}/>
                 <h1>{hosts.name}</h1>
                 <h1>{hosts.bio}</h1>
             </div>

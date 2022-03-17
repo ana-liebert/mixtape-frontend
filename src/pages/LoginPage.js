@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import axiosInstance  from '../axios';
-import { useHistory } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom';
+// import React, { useState } from 'react';
+// import axiosInstance  from '../axios';
+// import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/esm/Button';
@@ -9,7 +8,9 @@ import Button from 'react-bootstrap/esm/Button';
 
 
 export default function LogIn(props) {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
+
+
     // object freeze gets user to type in info, and once it's commited the information is freezed and cannot be changed, small security measure
     const initialFormData = Object.freeze({
         email: '',
@@ -27,7 +28,7 @@ export default function LogIn(props) {
         });
     };
 
-    const [credentials, setCredentials] = useState(null);
+    // const [credentials, setCredentials] = useState(null);
 
     // create auth component
     // route to login/logout, maybe register too 

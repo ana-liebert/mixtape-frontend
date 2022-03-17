@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axiosInstance  from '../axios';
 import { useNavigate } from 'react-router-dom';
-import { Route, Routes, useParams } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Login from '../pages/LoginPage';
 import Profile from '../pages/ProfilePage';
 import Logout from './Logout';
@@ -51,9 +51,9 @@ const Authorization = () => {
 
     console.log("email to pass down", userEmail)
 
-    const PROFURL = 'http://localhost:8000/profile/';
+    const PROFURL = 'http://localhost:8000/profile/6/';
     const updateFavorites = async (favorites , userEmail) => {
-        await fetch(PROFURL + '6' + '/', {
+        await fetch(PROFURL, {
             method: "put",
             headers: {
                 "Content-Type": "application/json",

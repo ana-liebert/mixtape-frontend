@@ -8,8 +8,8 @@ function Create(props) {
     const [mixes, setMixes] = useState(null);
 
 
-    // const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/mixes/";
-    const URL = "http://localhost:8000/mixtape/mixes/";
+    const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/mixes/create/";
+    // const URL = "http://localhost:8000/mixtape/mixes/create";
 
 
     const getMixes = async () => {
@@ -45,12 +45,12 @@ function Create(props) {
 
     useEffect(() => getMixes(), []);
 
-    const Timer =()=>{
-        useEffect( ()=>{
-           console.log("hello");
-           setTimeout( ()=>{ alert("hello"); }, 2000);
-        }, [] );
-     }
+    // const Timer =()=>{
+    //     useEffect( ()=>{
+    //        console.log("hello");
+    //        setTimeout( ()=>{ alert("hello"); }, 2000);
+    //     }, [] );
+    //  }
 
 
     // const options = [
@@ -90,7 +90,6 @@ function Create(props) {
     const loaded = () => {
         return (
         <section>
-           {/* {Timer()} */}
 
 
            <Form className="update"> 
