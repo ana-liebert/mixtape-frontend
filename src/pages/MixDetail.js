@@ -76,7 +76,7 @@ function MixDetail(props) {
     console.log(favorites)
     console.log(mixes)
 
-    let [newArray, setNewArray] = useState("");
+    // let [newArray, setNewArray] = useState("");
 
 
 
