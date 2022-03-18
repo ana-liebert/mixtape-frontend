@@ -1,7 +1,7 @@
 import React from "react"
 import {useParams} from "react-router-dom"
 import { useState, useEffect } from "react"
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Button from "react-bootstrap/esm/Button";
 
 function MixDetail(props) {
@@ -115,9 +115,9 @@ function MixDetail(props) {
                 <Button className="like" onClick={() => setLiked("Liked")}>{liked}</Button>
                 <br></br>
                 
-                <Link to={`/mixes/update/${mixes.id}`}>
+                {/* <Link to={`/mixes/update/${mixes.id}`}>
                 <Button className="mix-test">Update</Button>
-                        </Link>
+                        </Link> */}
                         </div>
                 <form>
                 </form>
