@@ -37,8 +37,8 @@ function Home(props) {
             return (
               <div className="col-md-4 col-sm-6">
                   <div className="card mixcard" key={mix.id}>
-                  <Link to={`/mixes/${mix.id}`}><h1>{mix.title}</h1></Link>
-                  <p>{mix.description}</p>
+                  <Link to={`/mixes/${mix.id}`}><h1 className="cardtitle">{mix.title}</h1></Link>
+                  <p className="description">{mix.description}</p>
                   <img src={mix.image} alt={mix.title}/>
 
                     {mix.genre.map((gID) => {

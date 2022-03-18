@@ -39,7 +39,7 @@ body {
 }
 .mixcard {
   max-width: 500px;
-  height: 500px;
+  height: 550px;
   margin: 20px;
   color: white;
   background-color: black !important;
@@ -171,4 +171,9 @@ a:visited {
 .like {
   margin-left: 20px;
   width: 80px;
+}
+
+.cardtitle {
+  font-size: 30px;
+  font-weight: 600;
 }
