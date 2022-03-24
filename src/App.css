@@ -38,19 +38,19 @@ body {
   color: white;
 }
 .mixcard {
-  max-width: 500px;
-  height: 550px;
+  height: 560px;
   max-height: 600px;
+  max-width: 450px;
   margin: 20px;
-  color: white;
+  color: rgb(151, 151, 151);
   background-color: black !important;
   border-color: white !important;
   padding: 20px;
 }
 
+
 .mixcard-image {
-  max-height: 220px;
-  max-width: 350px;
+  height: 250px;
 }
 
 
@@ -112,7 +112,10 @@ a:visited {
   margin: 20px;
   position: relative;
 }
-
+.host-img {
+  max-height: 500px;
+  max-width: 600px;
+}
 .mycol {
   border: solid 1px white;
 }

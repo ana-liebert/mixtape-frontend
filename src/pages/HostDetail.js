@@ -28,7 +28,7 @@ function HostDetail(props) {
     const loaded = () => {
         return (
             <div>
-                <img alt="" src={hosts.image}/>
+                <img alt={hosts.name} src={hosts.image}/>
                 <h1>{hosts.name}</h1>
                 <h1>{hosts.bio}</h1>
             </div>

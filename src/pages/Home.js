@@ -35,7 +35,7 @@ function Home(props) {
             <div className="row">
           {props.mixes.map((mix) => {
             return (
-              <div className="col-md-4 col-sm-6">
+              <div className="col-xl-4 col-lg-6 col-md-12 col-sm-12">
                   <div className="card mixcard" key={mix.id}>
                   <Link to={`/mixes/${mix.id}`}><h1 className="cardtitle">{mix.title}</h1></Link>
                   <p className="description">{mix.description}</p>

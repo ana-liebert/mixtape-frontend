@@ -75,7 +75,7 @@ export default function LogIn(props) {
             />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Remeber Me" />
+            <Form.Check type="checkbox" label="Remember Me" />
         </Form.Group>
 
 
@@ -87,30 +87,7 @@ export default function LogIn(props) {
         </Link>
         </Form>
         </div>
-
-
-
-
-        {/* <form>
-            <input 
-            name="email" 
-            type="email" 
-            label="Email" 
-            id="email" 
-            onChange={handleChange}
-            />
-            <input 
-            name="password" 
-            type="password" 
-            label="Password" 
-            id="password" 
-            onChange={handleChange}
-            />
-            <button type="submit" onClick={handleSubmit}>Log In</button>
-        </form>
-        <Link to="/register">
-        <div>Sign Up</div>
-        </Link> */}
+                {/* potentially add signup toggle here */}
         </div>
     )
 }
