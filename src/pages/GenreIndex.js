@@ -9,22 +9,23 @@ function GenreIndex(props) {
 
     const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/mixes/";
     // const URL = "http://localhost:8000/mixtape/mixtape/mixes";
+    
     let foundMixes
     const genreId = useParams()
     const foundGenreId = Number(genreId.id)
-    console.log("this is the genre id to filter by", foundGenreId)
+    // console.log("this is the genre id to filter by", foundGenreId)
 
     const getMixes = async () => {
         const response = await fetch(URL);
         const data = await response.json();
-        console.log("All of the mixes", data)
+        // console.log("All of the mixes", data)
 
         // foundMixes = data.filter(mixesFound => mixesFound.genre.id = foundGenreId)
         foundMixes = data.filter((filtered) => {
             return filtered.genre.includes(foundGenreId)
         })
         setMixes(foundMixes);
-        console.log("these are the mixes for genre filter", foundMixes)
+        // console.log("these are the mixes for genre filter", foundMixes)
     };
 
     useEffect(() => getMixes());

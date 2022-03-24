@@ -104,7 +104,7 @@ function Main(props) {
     return (
         <main>
             <Routes>
-                <Route path="/mixes" element={<Home mixes={mixes}/>} />
+                <Route path="/mixes" element={<Home mixes={mixes} genres={genres}/>} />
                 <Route path="/mixes/create" element={<Create createMix={createMix} genres={genres} createGenre={createGenre} />}/>
                 <Route path="/mixes/update/:id" element={<UpdateDelete genres={genres} deleteMix={deleteMix} updateMix={updateMix} />}/>
                 <Route path="/register" element={<Register />}/>

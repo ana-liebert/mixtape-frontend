@@ -39,16 +39,19 @@ function Home(props) {
                   <div className="card mixcard" key={mix.id}>
                   <Link to={`/mixes/${mix.id}`}><h1 className="cardtitle">{mix.title}</h1></Link>
                   <p className="description">{mix.description}</p>
-                  <img src={mix.image} alt={mix.title}/>
-
-                    {mix.genre.map((gID) => {
+                  <img className="mixcard-image" src={mix.image} alt={mix.title}/>
+                   
+                   {/* use the loop to map out the genre id
+                   with this id filter the genre names */}
+                    {/* {mix.genre.map((gID) => {
                       return (
                         <div>
+                          <p key={gID}>{gID}</p>
                           {console.log("genre id:", gID)}
-                          <p key={gID}>{gID.name}</p>
+                          {console.log("genre id:", gID)}
                           </div>
                       )
-                    })}
+                    })} */}
                   </div>
           </div>
             )
