@@ -55,11 +55,11 @@ const Profile = (props) => {
                         <div className="row">
                             {profile.favorites.map((mixes) => {
                                 return (
-                                    <div className="col-md-7">
-                                        <div className="card mixcard" key={mixes.id}>
+                                    <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 mycol">
+                                        <div className="card host-card" key={mixes.id}>
                                             <Link to={`/mixes/${mixes.id}`}><h1>{mixes.title}</h1></Link>
                                             <p>{mixes.description}</p>
-                                            <img src={mixes.image} alt={mixes.title} />
+                                            <img class="host-img" src={mixes.image} alt={mixes.title} />
 
                                         </div>
                                     </div>
@@ -81,11 +81,11 @@ const Profile = (props) => {
                         <div className="row">
                             {profile.favorites.map((mixes) => {
                                 return (
-                                    <div className="col-md-6">
-                                        <div className="card mixcard" key={mixes.id}>
+                                    <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 mycol">
+                                        <div className="card host-card" key={mixes.id}>
                                             <Link to={`/mixes/${mixes.id}`}><h1>{mixes.title}</h1></Link>
                                             <p>{mixes.description}</p>
-                                            <img src={mixes.image} alt={mixes.title} />
+                                            <img class="host-img" src={mixes.image} alt={mixes.title} />
 
                                         </div>
                                     </div>
