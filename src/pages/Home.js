@@ -16,13 +16,11 @@ function Home(props) {
               <Carousel.Item interval={2000}>
                       <img 
                       className="carousel-image"
-                      // className="d-block w-100 cover-image"
                       src={mix.image} 
                       alt={mix.title}/>
               <Carousel.Caption>
                 <div className="carousel-caption">
                 <Link to={`/mixes/${mix.id}`}><h1 className="carousel-text">{mix.title}</h1></Link>
-                {/* <h3 className="carousel-text">{mix.title}</h3> */}
                 <h3 className="carousel-text">{mix.description}</h3>
                 </div>
                 </Carousel.Caption>
@@ -37,7 +35,7 @@ function Home(props) {
             <div className="row">
           {props.mixes.map((mix) => {
             return (
-              <div className="col-xl-4 col-lg-6 col-md-12 col-sm-12">
+              <div className="col-xl-4 col-lg-6 col-md-6 col-sm-12">
                   <div className="card mixcard" key={mix.id}>
                   <Link to={`/mixes/${mix.id}`}><h1 className="cardtitle">{mix.title}</h1></Link>
                   <p className="description">{mix.description}</p>
