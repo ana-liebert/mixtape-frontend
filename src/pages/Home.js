@@ -10,11 +10,13 @@ function Home(props) {
     const loaded = () => {
       return (
       <div>
-            <Carousel className="carousel-container">
+            <Carousel className="carousel-container car-contain">
               {props.mixes.map((mix) => {
                     return (
               <Carousel.Item interval={2000}>
-                      <img className="d-block w-100 cover-image"
+                      <img 
+                      className="carousel-image"
+                      // className="d-block w-100 cover-image"
                       src={mix.image} 
                       alt={mix.title}/>
               <Carousel.Caption>

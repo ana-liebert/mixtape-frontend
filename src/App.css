@@ -3,28 +3,27 @@ body {
   font-family: 'Red Hat Display', sans-serif !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 .cover-image {
   width: 100%;
   height:auto;
-  opacity: 80%;
+  /* object-fit: cover; */
+  opacity: 90%;
   position: relative;
   margin: 0px;
   background-size: cover;
-  width: 100%px;
   overflow:hidden;
 }
 
-.carousel-container {
+/* .carousel-container {
   margin-bottom: 100px;
+} */
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-height: 885px;
 }
 
 .carousel-caption {
@@ -37,15 +36,27 @@ body {
   padding: 20px;
   color: white;
 }
+
+@media only screen and (max-width: 800px) {
+  .carousel-caption, .carousel-text {
+  margin:5px;
+  padding:0px;
+  font-size: 20px;
+  text-align: left !important;
+  color: white;
+  }
+}
 .mixcard {
   height: 560px;
   max-height: 600px;
-  max-width: 450px;
-  margin: 20px;
+  margin: 10px;
   color: rgb(151, 151, 151);
   background-color: black !important;
   border-color: white !important;
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right:10px;
+  padding-left:10px;
 }
 
 
