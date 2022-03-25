@@ -172,22 +172,40 @@ a:visited {
   font-size: 30px;
   text-align: left;
   color: white;
-  margin: 20px;
+  margin: 25px;
+}
+
+.host-head {
+  font-size: 50px;
+  text-transform: uppercase;
+  font-weight: bolder;
+  text-align: left;
+  color: white;
+  margin: 25px;
 }
 
 
 .buttons {
   display: flex;
-  flex-direction: column;
-  margin-left: 30px;
+  flex-direction:row;
+  justify-content: space-between;
+  width: 30px;
+  height: 35px;
+  margin:10px;
 }
 
-.like {
-  margin-left: 20px;
-  width: 80px;
+#like, #update {
+  margin: 10px;
+  margin-bottom: 100px;
 }
+
 
 .cardtitle {
   font-size: 30px;
   font-weight: 600;
+}
+
+.iframe {
+  height: 20px;
+  margin-top: 40px;
 }

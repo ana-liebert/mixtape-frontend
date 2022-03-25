@@ -104,21 +104,21 @@ function MixDetail(props) {
 
         return (
             <div className="mix-detail">
-                <img alt="" src={mixes.image}/>
-                <iframe className="mix-test" width="100%" height="20" scrolling="no" frameBorder="no" title="mixtape" src={mixes.soundcloudplayer}></iframe>
+                <img className="carousel-image" alt={mixes.title} src={mixes.image}/>
+                <iframe className="iframe" width="100%" height="20" scrolling="no" frameBorder="no" title="mixtape" src={mixes.soundcloudplayer}></iframe>
                 <h1 className="mix-test">{mixes.title}</h1> 
                 <p className="mix-test">{mixes.description}</p>
 
                 <div className="buttons">
-
-                
-                <Button className="like" onClick={() => setLiked("Liked")}>{liked}</Button>
-                <br></br>
-                
+                    <div id="like">
+                <Button onClick={() => setLiked("Liked")}>{liked}</Button>
+                    </div>
+                <div>
                 <Link to={`/mixes/update/${mixes.id}`}>
-                <Button className="mix-test">Update</Button>
+                <Button id="update">Update</Button>
                         </Link>
-                        </div>
+                </div>
+                </div>
                 <form>
                 </form>
             </div>
