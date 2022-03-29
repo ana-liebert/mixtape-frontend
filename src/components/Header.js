@@ -14,7 +14,7 @@ function Header(props) {
                     <header>
                 <nav className="nav navbar navbar-expand-lg nav-style">
                     <div className="nav container">
-                        <Link to="/mixes">
+                        <Link to="">
                             <div>HOME</div>
                         </Link>
                         <Link to="/discover">
@@ -45,7 +45,7 @@ function Header(props) {
                 <header>
             <nav className="nav navbar navbar-expand-lg nav-style">
                 <div className="nav container">
-                    <Link to="/mixes">
+                    <Link to="">
                         <div>HOME</div>
                     </Link>
                     <Link to="/discover">
