@@ -82,7 +82,7 @@ export default function SignUp() {
             />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Remeber Me" />
+            <Form.Check type="checkbox" label="Remember Me" />
         </Form.Group>
 
 

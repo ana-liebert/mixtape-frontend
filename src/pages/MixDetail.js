@@ -8,31 +8,31 @@ function MixDetail(props) {
     const [mixes, setMixes] = useState(null);
 
     const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/";
-    // const URL = "http://localhost:8000/mixtape/";
+  
 
-    let thisProfile
-    let profileEmail
+    // let thisProfile
+    // let profileEmail
+    
 
-    // const URLPROF = "http://localhost:8000/mixtape/profile/";
-    const URLPROF = "https://aliebert-mixtape.herokuapp.com/mixtape/profile/";
+    // const URLPROF = "https://aliebert-mixtape.herokuapp.com/mixtape/profile/";
     
-    const [favorites, setFavorites] = useState("")
-    const [profile, setProfile] = useState(null)
+    // const [favorites, setFavorites] = useState("")
+    // const [profile, setProfile] = useState(null)
     
-    const getProfileData = async () => {
-        const response = await fetch(URLPROF);
-        const profData = await response.json();
+    // const getProfileData = async () => {
+    //     const response = await fetch(URLPROF);
+    //     const profData = await response.json();
         // console.log("user detail coming through", profData)
-        profileEmail = props.userEmail
+        // profileEmail = props.userEmail
         
-        thisProfile = profData.find(profile => profile.user.email === profileEmail)
-        console.log("user detail coming through", thisProfile)
-        setFavorites(thisProfile.favorites);
-        setProfile(thisProfile)
-        console.log("stinkerbell", thisProfile.user.is_staff)
-        console.log(profile)
+        // thisProfile = profData.find(profile => profile.user.email === profileEmail)
+        // console.log("user detail coming through", thisProfile)
+        // setFavorites(thisProfile.favorites);
+        // setProfile(thisProfile)
+        // console.log("stinkerbell", thisProfile.user.is_staff)
+        // console.log(profile)
 
-    };
+    // };
 
     // useEffect(() => {
     //     const abortController = new AbortController();
@@ -60,12 +60,12 @@ function MixDetail(props) {
     let thisMix
     const mixId = useParams()
     const foundId = Number(mixId.id)
-    console.log(foundId)
+    //console.log(foundId)
 
     const getMixes = async () => {
         const response = await fetch(URL + "mixes");
         const data = await response.json();
-        console.log(data)
+        // console.log(data)
         
         thisMix = data.find(taco => taco.id === foundId)
         setMixes(thisMix);
@@ -73,8 +73,8 @@ function MixDetail(props) {
     };
     
 
-    console.log(favorites)
-    console.log(mixes)
+    // console.log(favorites)
+    // console.log(mixes)
 
     // let [newArray, setNewArray] = useState("");
 
@@ -91,7 +91,8 @@ function MixDetail(props) {
     
 
     useEffect(() => getMixes());
-    useEffect(() => getProfileData());
+    // useEffect(() => getProfileData());
+
     // removed [] on both
 
 
