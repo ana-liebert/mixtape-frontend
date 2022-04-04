@@ -8,7 +8,6 @@ function GenreIndex(props) {
     const [mixes, setMixes] = useState(null);
 
     const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/mixes/";
-    // const URL = "http://localhost:8000/mixtape/mixtape/mixes";
 
     let foundMixes
     const genreId = useParams()
@@ -20,7 +19,6 @@ function GenreIndex(props) {
         const data = await response.json();
         // console.log("All of the mixes", data)
 
-        // foundMixes = data.filter(mixesFound => mixesFound.genre.id = foundGenreId)
         foundMixes = data.filter((filtered) => {
             return filtered.genre.includes(foundGenreId)
         })
@@ -28,8 +26,10 @@ function GenreIndex(props) {
         // console.log("these are the mixes for genre filter", foundMixes)
     };
 
-    useEffect(() => getMixes());
-    // what is the issue here???? trying to remove the []
+    useEffect(() => {
+        getMixes()
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
 
 
     const loaded = () => {

@@ -22,8 +22,10 @@ function HostDetail(props) {
         // console.log("this is the found host", foundHost)
     };
 
-    useEffect(() => getHosts());
-    // removed the empty array ,[]
+   
+    useEffect(() => {
+        getHosts()
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     const loaded = () => {
         return (
