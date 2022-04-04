@@ -150,24 +150,10 @@ import Button from 'react-bootstrap/Button';
 const Profile = (props) => {
 
 
-    // const [credentials, setCredentials] = useState(null);
-
-
- 
     const profileEmail = props.userEmail
     const credentials = props.credentials
     console.log("the credentials coming through", props.credentials)
     console.log("email coming through to profile", profileEmail)
-
-    // const getProfile = async () => {
-    //     response = await setCredentials(props.credentials)
-    //     console.log(credentials)
-    // };
-
-
-// useEffect(() => {
-//     getProfile()
-// }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     const loaded = () => {
 
