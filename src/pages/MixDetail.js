@@ -90,7 +90,12 @@ function MixDetail(props) {
     // }
     
 
-    useEffect(() => getMixes());
+   
+    useEffect(() => {
+        getMixes()
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+    
     // useEffect(() => getProfileData());
 
     // removed [] on both

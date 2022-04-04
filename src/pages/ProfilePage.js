@@ -27,8 +27,11 @@ const Profile = (props) => {
     };
 
 
-    useEffect(() => getProfile());
-    // removed []
+    
+    useEffect(() => {
+        getProfile()
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
 
 
 

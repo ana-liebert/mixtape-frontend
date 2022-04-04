@@ -63,8 +63,11 @@ function UpdateDelete(props) {
 
 
 
-    useEffect(() => getMixes());
-    // removed , []
+    
+    useEffect(() => {
+        getMixes()
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
 
     const loaded = () => {
         return (
