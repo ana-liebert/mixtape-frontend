@@ -120,10 +120,10 @@ function Create(props) {
                     </Form.Group>
 
                     <Form.Group className="mb-3" >
-                        {/* <Form.Label>Host</Form.Label> */}
+                        <Form.Label>Host</Form.Label>
                         <Form.Control
-                            type="hidden"
-                            value="6"
+                            type="text"
+                            value={newForm.host}
                             name="host"
                             placeholder={mixes.host}
                             onChange={handleChange}
@@ -153,10 +153,10 @@ function Create(props) {
                     </Form.Group>
 
                     <Form.Group className="mb-3" >
-                        {/* <Form.Label>Creator</Form.Label> */}
+                        <Form.Label>Creator</Form.Label>
                         <Form.Control
-                            type="hidden"
-                            value="1"
+                            type="text"
+                            value={newForm.creator}
                             name="creator"
                             placeholder={mixes.creator}
                             onChange={handleChange}

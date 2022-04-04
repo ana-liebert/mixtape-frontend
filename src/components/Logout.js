@@ -29,11 +29,13 @@ export default function Logout(props) {
     const handleClick = (e) => {
         e.preventDefault();
         props.removeCredentials(credentials)
-        navigate('/mixes');
+        navigate('/');
     }
 
     return <div>
-        <h1>Logout</h1>
-        <Button onClick={handleClick}>Logout</Button>
+        <h1 className="genre-text">Are you sure you want to logout?   
+        <Button onClick={handleClick}>Confirm</Button>
+        </h1>
+        
         </div>
 }
