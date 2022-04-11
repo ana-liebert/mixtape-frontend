@@ -5,10 +5,6 @@ import Hosts from './components/Hosts';
 import Authorization from './components/Authorization';
 
 
-
-
-
-
 function App() {
 
   return (

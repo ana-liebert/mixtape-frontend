@@ -25,29 +25,32 @@ function UpdateDelete(props) {
     };
 
 
-    const [editForm, setEditForm] = useState({
-        title: "",
-        description: "",
-        host: "6",
-        genre: [7],
-        image: "",
-        soundcloudplayer: "",
-        creator: "1",
-        tracklist: "",
-    })
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const host = 6;
+    const [genre, setGenre] = useState([]);
+    const [image, setImage] = useState("");
+    const [soundcloudplayer, setSoundcloud] = useState("");
+    const creator = "1"
+    const tracklist = ""
 
-    const [genreInput, setGenreInput] = useState({ genre: [7] })
-
-
-    const handleChange = event => {
-        setEditForm({ ...editForm, [event.target.name]: event.target.value })
-    }
 
     const handleSubmit = event => {
+        let mix = {
+            title,
+            description,
+            host,
+            genre,
+            image,
+            soundcloudplayer,
+            creator,
+            tracklist,
+        };
         event.preventDefault()
-        props.updateMix(editForm, mixes.id)
-        navigate(`/mixes/${mixes.id}`)
+        props.updateMix(mix, mixes.id)
+        navigate("/")
     }
+
 
     const removeMix = () => {
         props.deleteMix(mixes, mixes.id)
@@ -55,7 +58,6 @@ function UpdateDelete(props) {
     }
 
 
-    
     useEffect(() => {
         getMixes()
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
@@ -74,10 +76,8 @@ function UpdateDelete(props) {
                         <Form.Label>Title</Form.Label>
                         <Form.Control
                             type="text"
-                            value={editForm.title}
                             name="title"
-                            placeholder={mixes.title}
-                            onChange={handleChange}
+                            onChange={e => setTitle(e.target.value)}
                         />
                     </Form.Group>
 
@@ -85,20 +85,8 @@ function UpdateDelete(props) {
                         <Form.Label>Description</Form.Label>
                         <Form.Control
                             type="text"
-                            value={editForm.description}
                             name="description"
-                            placeholder={mixes.description}
-                            onChange={handleChange}
-                        />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3" >
-                        <Form.Control
-                            type="hidden"
-                            value="6"
-                            name="host"
-                            placeholder={mixes.host}
-                            onChange={handleChange}
+                            onChange={e => setDescription(e.target.value)}
                         />
                     </Form.Group>
 
@@ -106,43 +94,31 @@ function UpdateDelete(props) {
                         <Form.Label>Image</Form.Label>
                         <Form.Control
                             type="text"
-                            value={editForm.image}
                             name="image"
-                            placeholder={mixes.image}
-                            onChange={handleChange}
+                            onChange={e => setImage(e.target.value)}
                         />
                     </Form.Group>
 
-
                     <Form.Group className="mb-3" >
-                        <Form.Label>soundcloudplayer</Form.Label>
+                        <Form.Label>Soundcloud player</Form.Label>
                         <Form.Control
                             type="text"
-                            value={editForm.soundcloudplayer}
                             name="soundcloudplayer"
-                            placeholder={mixes.soundcloudplayer}
-                            onChange={handleChange}
+                            onChange={e => setSoundcloud(e.target.value)}
                         />
                     </Form.Group>
 
-                    <Form.Group className="mb-3" >
-                        <Form.Control
-                            type="hidden"
-                            value="1"
-                            name="creator"
-                            placeholder={mixes.creator}
-                            onChange={handleChange}
-                        />
+                    <Form.Group >
+                        <Form.Label>Genre</Form.Label>
+                        <Form.Select
+                            onChange={e => setGenre([e.target.value])} >
+                            {props.genres.map(
+                                (genre) => <option key={genre.id} value={[genre.id]}>
+                                    {genre.name}
+                                </option>
+                            )}
+                        </Form.Select>
                     </Form.Group>
-
-                    <select multiple onChange={(event) => setGenreInput(event.target.value)} value={genreInput}>
-
-                        {props.genres.map(
-                            (genre) => <option key={genre.id} value={genre.id}>
-                                {genre.name}
-                            </option>
-                        )}
-                    </select>
 
                     <Button variant="primary" type="submit" onClick={handleSubmit}>
                         Submit
