@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function DiscoverPage(props) {
     console.log("these are the props", props)
 
-    // loaded function
+
     const loaded = () => {
         return (
         <div>

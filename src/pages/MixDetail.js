@@ -98,10 +98,6 @@ function MixDetail(props) {
     
     // useEffect(() => getProfileData());
 
-    // removed [] on both
-
-
-
     
     let [liked, setLiked] = useState("Like")
 

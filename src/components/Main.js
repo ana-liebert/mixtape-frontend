@@ -12,19 +12,16 @@ function Main(props) {
     const [mixes, setMixes] = useState(null);
 
     const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/mixes/";
-    // const URL = "http://localhost:8000/mixtape/mixes/";
 
     const getMixes = async () => {
         const response = await fetch(URL);
         const data = await response.json();
-        // console.log(data)
         setMixes(data);
     };
 
     const [genres, setGenres] = useState(null);
 
     const URLGENRE = "https://aliebert-mixtape.herokuapp.com/mixtape/discover/";
-    // const URLGENRE = "http://localhost:8000/mixtape/discover/";
 
     const getGenres = async () => {
         const response = await fetch(URLGENRE);
@@ -36,6 +33,7 @@ function Main(props) {
     const createMix = async mix => {
         console.log(mix)
         console.log(mix.title)
+        console.log(mix.genre)
         await fetch(URL ,{
             method: "post",
             headers: {
@@ -43,7 +41,6 @@ function Main(props) {
             },
             body: JSON.stringify(mix),
         });
-        // update list
         getMixes();
     };
 
@@ -64,9 +61,6 @@ function Main(props) {
 
 
     const updateMix = async (mix, id) => {
-        // make put request
-        // console.log("this is the mix to stringify", mix)
-        // console.log(id)
         await fetch(URL + id + "/", {
             method: "put",
             headers: {
@@ -74,7 +68,6 @@ function Main(props) {
             },
             body: JSON.stringify(mix),
         })
-        // update list
         getMixes()
     }
 
@@ -83,11 +76,9 @@ function Main(props) {
 
     const deleteMix = async (mix, id) => {
         console.log("id inside the function", id)
-        // make delete request to create people
         await fetch(URL + id + "/", {
             method: "delete",
             })
-        // update list
         getMixes()
     }
 

@@ -12,18 +12,15 @@ function GenreIndex(props) {
     let foundMixes
     const genreId = useParams()
     const foundGenreId = Number(genreId.id)
-    // console.log("this is the genre id to filter by", foundGenreId)
 
     const getMixes = async () => {
         const response = await fetch(URL);
         const data = await response.json();
-        // console.log("All of the mixes", data)
 
         foundMixes = data.filter((filtered) => {
             return filtered.genre.includes(foundGenreId)
         })
         setMixes(foundMixes);
-        // console.log("these are the mixes for genre filter", foundMixes)
     };
 
     useEffect(() => {
@@ -34,7 +31,6 @@ function GenreIndex(props) {
 
     const loaded = () => {
 
-        // console.log(mixes.length)
 
         if (mixes.length < 1) {
             return (
@@ -42,23 +38,22 @@ function GenreIndex(props) {
             )
         }
 
-
         return (
-        <div className="container genre-container">
-        <div className="row">
-            {mixes.map((mix) => {
-                return (
-                    <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 mycol">
-                        <div className="card host-card" key={mix.id}>
-                            <Link to={`/mixes/${mix.id}`}><h1>{mix.title}</h1></Link>
-                            <p>{mix.description}</p>
-                            <img class="host-img" src={mix.image} alt={mix.title} />
-                        </div>
-                    </div>
-                )
-            })}
-        </div>
-    </div>
+            <div className="container genre-container">
+                <div className="row">
+                    {mixes.map((mix) => {
+                        return (
+                            <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 mycol">
+                                <div className="card host-card" key={mix.id}>
+                                    <Link to={`/mixes/${mix.id}`}><h1>{mix.title}</h1></Link>
+                                    <p>{mix.description}</p>
+                                    <img class="host-img" src={mix.image} alt={mix.title} />
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
         )
     };
 

@@ -15,18 +15,14 @@ function UpdateDelete(props) {
     let thisMix
     const mixId = useParams()
     const foundId = Number(mixId.id)
-    // console.log(foundId)
 
     const getMixes = async () => {
         const response = await fetch(URL);
         const data = await response.json();
 
         thisMix = data.find(mix => mix.id === foundId)
-        // console.log("this is the found mix", thisMix)
         setMixes(thisMix);
     };
-
-    // console.log("updated state of mixes ---------->", mixes)
 
 
     const [editForm, setEditForm] = useState({
@@ -53,14 +49,10 @@ function UpdateDelete(props) {
         navigate(`/mixes/${mixes.id}`)
     }
 
-
-
-    // console.log("mix to remove", mixes)
     const removeMix = () => {
         props.deleteMix(mixes, mixes.id)
         navigate("/")
     }
-
 
 
     
@@ -75,8 +67,6 @@ function UpdateDelete(props) {
                 <img alt="" src={mixes.image} />
                 <h1>{mixes.title}</h1>
                 <p>{mixes.description}</p>
-
-
 
                 <Form>
                     <h1>Update</h1>
@@ -103,7 +93,6 @@ function UpdateDelete(props) {
                     </Form.Group>
 
                     <Form.Group className="mb-3" >
-                        {/* <Form.Label>Host</Form.Label> */}
                         <Form.Control
                             type="hidden"
                             value="6"
@@ -137,7 +126,6 @@ function UpdateDelete(props) {
                     </Form.Group>
 
                     <Form.Group className="mb-3" >
-                        {/* <Form.Label>Creator</Form.Label> */}
                         <Form.Control
                             type="hidden"
                             value="1"
@@ -162,79 +150,6 @@ function UpdateDelete(props) {
                     <Button id="delete" onClick={removeMix}>Delete</Button>
                 </Form>
 
-
-                {/* <form onSubmit={handleSubmit}>
-                    <input
-                        type="text"
-                        value={editForm.title}
-                        name="title"
-                        placeholder={mixes.title}
-                        onChange={handleChange}
-                    />
-                    <input
-                        type="text"
-                        value={editForm.description}
-                        name="description"
-                        placeholder={mixes.description}
-                        onChange={handleChange}
-                    />
-                    <input
-                        type="text"
-                        value={editForm.soundcloudplayer}
-                        name="soundcloudplayer"
-                        placeholder={mixes.soundcloudplayer}
-                        onChange={handleChange}
-                    />
-                      <input
-                        type="text"
-                        value={editForm.tracklist}
-                        name="tracklist"
-                        placeholder={mixes.tracklist}
-                        onChange={handleChange}
-                    />
-                    <label>
-                Select genre tags
-                </label>
-                this only works when page is already loaded and then you add it in??
-                <select multiple onChange={(event) => setGenreInput(event.target.value)} value={genreInput}>
-                    
-                    {props.genres.map(
-                        (genre) => <option key={genre.id} value={genre.id}>
-                            {genre.name}
-                        </option>
-                    )}
-                </select>
-                    <input
-                        type="text"
-                        value={editForm.image}
-                        name="image"
-                        placeholder={mixes.image}
-                        onChange={handleChange}
-                    />
-                    <input
-                        type="text"
-                        value={editForm.soundcloudplayer}
-                        name="soundcloudplayer"
-                        placeholder={mixes.soundcloudplayer}
-                        onChange={handleChange}
-                    />
-                    <input
-                    type="text"
-                    value={editForm.creator}
-                    name="creator"
-                    placeholder={mixes.creator}
-                    onChange={handleChange}
-                />
-                <input
-                    type="text"
-                    value={editForm.tracklist}
-                    name="tracklist"
-                    placeholder={mixes.tracklist}
-                    onChange={handleChange}
-                />
-                    <input type="submit" value="Update Mix" />
-                </form>
-                <button id="delete" onClick={removeMix}>DELETE</button> */}
             </div>
         )
     }
