@@ -7,33 +7,29 @@ function Create(props) {
 
     const navigate = useNavigate()
 
-    const [newForm, setNewForm] = useState({
-        title: "",
-        description: "",
-        // host: "",
-        host: "6",
-        genre: [10],
-        image: "",
-        soundcloudplayer: "",
-        // creator: "",
-        creator: "1",
-        tracklist: "",
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const host = 6;
+    const [genre, setGenre] = useState([]);
+    const [image, setImage] = useState("");
+    const [soundcloudplayer, setSoundcloud] = useState("");
+    const creator = "1"
+    const tracklist = ""
 
-    })
-    console.log(newForm)
-
-    const handleChange = event => {
-        setNewForm({ ...newForm, [event.target.name]: event.target.value })
-    }
-
-    const [genreInput, setGenreInput] = useState({
-        genre: [4]
-    });
 
     const handleSubmit = event => {
+        let mix = {
+            title,
+            description,
+            host,
+            genre,
+            image,
+            soundcloudplayer,
+            creator,
+            tracklist,
+        };
         event.preventDefault()
-        props.createMix(newForm)
-        props.createGenre(genreInput)
+        props.createMix(mix)
         navigate("/")
     }
 
@@ -45,9 +41,8 @@ function Create(props) {
                     <Form.Label>Title</Form.Label>
                     <Form.Control
                         type="text"
-                        value={newForm.title}
                         name="title"
-                        onChange={handleChange}
+                        onChange={e => setTitle(e.target.value)}
                     />
                 </Form.Group>
 
@@ -55,20 +50,8 @@ function Create(props) {
                     <Form.Label>Description</Form.Label>
                     <Form.Control
                         type="text"
-                        value={newForm.description}
                         name="description"
-                        onChange={handleChange}
-                    />
-                </Form.Group>
-
-                <Form.Group className="mb-3" >
-                    <Form.Control
-                        // type="text"
-                        type="hidden"
-                        // value={newForm.host}
-                        value="6"
-                        name="host"
-                        onChange={handleChange}
+                        onChange={e => setDescription(e.target.value)}
                     />
                 </Form.Group>
 
@@ -76,50 +59,31 @@ function Create(props) {
                     <Form.Label>Image</Form.Label>
                     <Form.Control
                         type="text"
-                        value={newForm.image}
                         name="image"
-                        onChange={handleChange}
+                        onChange={e => setImage(e.target.value)}
                     />
                 </Form.Group>
 
                 <Form.Group className="mb-3" >
-                    <Form.Label>soundcloudplayer</Form.Label>
+                    <Form.Label>Soundcloud player</Form.Label>
                     <Form.Control
                         type="text"
-                        value={newForm.soundcloudplayer}
                         name="soundcloudplayer"
-                        onChange={handleChange}
+                        onChange={e => setSoundcloud(e.target.value)}
                     />
                 </Form.Group>
 
-                <Form.Group className="mb-3" >
-                    <Form.Control
-                        // type="text"
-                        type="hidden"
-                        // value={newForm.creator}
-                        value="1"
-                        name="creator"
-                        onChange={handleChange}
-                    />
+                <Form.Group >
+                    <Form.Label>Genre</Form.Label>
+                    <Form.Select
+                        onChange={e => setGenre([e.target.value])} >
+                        {props.genres.map(
+                            (genre) => <option key={genre.id} value={[genre.id]}>
+                                {genre.name}
+                            </option>
+                        )}
+                    </Form.Select>
                 </Form.Group>
-
-                <select multiple onChange={(event) => setGenreInput(event.target.value)} value={genreInput}>
-
-                    {props.genres.map(
-                        (genre) => <option key={genre.id} value={genre.id}>
-                            {genre.name}
-                        </option>
-                    )}
-                </select>
-
-                {/* <select multiple value={[newForm.genre]} name="genre" onChange={handleChange}>
-
-                    {props.genres.map(
-                        (genre) => <option key={genre.id} value={[genre.id]}>
-                            {genre.name}
-                        </option>
-                    )}
-                    </select>  */}
 
                 <br>
                 </br>
@@ -127,7 +91,6 @@ function Create(props) {
                 <Button variant="primary" type="submit" onClick={handleSubmit}>
                     Submit
                 </Button>
-
             </Form>
 
         </section>

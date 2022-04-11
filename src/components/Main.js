@@ -27,13 +27,10 @@ function Main(props) {
         const response = await fetch(URLGENRE);
         const data = await response.json();
         setGenres(data);
-        console.log("genre data", data)
     };
 
     const createMix = async mix => {
         console.log(mix)
-        console.log(mix.title)
-        console.log(mix.genre)
         await fetch(URL ,{
             method: "post",
             headers: {
@@ -54,7 +51,6 @@ function Main(props) {
             },
             body: JSON.loads(genre),
         });
-        // update list
         getGenres();
     };
 
@@ -88,8 +84,6 @@ function Main(props) {
 
     useEffect(() => getMixes(), []);
     useEffect(() => getGenres(), []);
-    // need this for the fetch to actually show any data
-    
 
 
     return (
