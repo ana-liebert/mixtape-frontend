@@ -6,6 +6,8 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/esm/Button';
 
 function UpdateDelete(props) {
+
+    
     const [mixes, setMixes] = useState(null);
 
     const navigate = useNavigate()
@@ -23,6 +25,7 @@ function UpdateDelete(props) {
         thisMix = data.find(mix => mix.id === foundId)
         setMixes(thisMix);
     };
+
 
 
     const [title, setTitle] = useState("");
@@ -57,6 +60,7 @@ function UpdateDelete(props) {
         navigate("/")
     }
 
+    console.log("credentials coming to update page ", props.credentials)
 
     useEffect(() => {
         getMixes()

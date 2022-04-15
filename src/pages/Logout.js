@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/esm/Button';
 export default function Logout(props) {
     const navigate = useNavigate();
     const [credentials, setCredentials] = useState(null);
-    // const [userEmail, setUserEmail] = useState(null);
+
 
     useEffect(() => {
         const response = axiosInstance.post('user/logout/blacklist/', {
@@ -21,9 +21,7 @@ export default function Logout(props) {
         console.log("you are logged out")
         setCredentials(null)
         console.log(response)
-        // setUserEmail(null)
-        // console.log(userEmail)
-        // navigate('/mixes');
+
     }, []);
 
     const handleClick = (e) => {

@@ -30,26 +30,40 @@ function MixDetail(props) {
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
 
+    console.log("credentials coming to mix detail page ", props.credentials )
+
     const loaded = () => {
 
-        return (
-            <div className="mix-detail">
-                <img className="carousel-image" alt={mixes.title} src={mixes.image}/>
-                <iframe className="iframe" width="100%" height="20" scrolling="no" frameBorder="no" title="mixtape" src={mixes.soundcloudplayer}></iframe>
-                <h1 className="mix-test">{mixes.title}</h1> 
-                <p className="mix-test">{mixes.description}</p>
-
-                <div className="buttons">
-                <Link to={`/mixes/update/${mixes.id}`}>
-                <Button id="update">Update</Button>
-                        </Link>
-                <div>
+        if (props.credentials) {
+            return (
+                <div className="mix-detail">
+                    <img className="carousel-image" alt={mixes.title} src={mixes.image}/>
+                    <iframe className="iframe" width="100%" height="20" scrolling="no" frameBorder="no" title="mixtape" src={mixes.soundcloudplayer}></iframe>
+                    <h1 className="mix-test">{mixes.title}</h1> 
+                    <p className="mix-test">{mixes.description}</p>
+    
+                    <div className="buttons">
+                    <Link to={`/mixes/update/${mixes.id}`}>
+                    <Button id="update">Update</Button>
+                            </Link>
+                    <div>
+                    </div>
+                    </div>
+                    <form>
+                    </form>
                 </div>
+            );
+        }
+        else {
+            return (
+                <div className="mix-detail">
+                    <img className="carousel-image" alt={mixes.title} src={mixes.image}/>
+                    <iframe className="iframe" width="100%" height="20" scrolling="no" frameBorder="no" title="mixtape" src={mixes.soundcloudplayer}></iframe>
+                    <h1 className="mix-test">{mixes.title}</h1> 
+                    <p className="mix-test">{mixes.description}</p>
                 </div>
-                <form>
-                </form>
-            </div>
-        );
+            );
+        }
 
     };
 
