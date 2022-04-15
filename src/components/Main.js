@@ -42,19 +42,6 @@ function Main(props) {
     };
 
 
-    const createGenre = async genre => {
-        
-        await fetch(URL ,{
-            method: "post",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.loads(genre),
-        });
-        getGenres();
-    };
-
-
 
     const updateMix = async (mix, id) => {
         await fetch(URL + id + "/", {
@@ -68,8 +55,6 @@ function Main(props) {
     }
 
 
-
-
     const deleteMix = async (mix, id) => {
         console.log("id inside the function", id)
         await fetch(URL + id + "/", {
@@ -77,9 +62,6 @@ function Main(props) {
             })
         getMixes()
     }
-
-
-
 
 
     useEffect(() => getMixes(), []);
@@ -90,7 +72,7 @@ function Main(props) {
         <main>
             <Routes>
                 <Route path="" element={<Home mixes={mixes} genres={genres}/>} />
-                <Route path="/mixes/create" element={<Create createMix={createMix} genres={genres} createGenre={createGenre} />}/>
+                <Route path="/mixes/create" element={<Create createMix={createMix} genres={genres} />}/>
                 <Route path="/mixes/update/:id" element={<UpdateDelete genres={genres} deleteMix={deleteMix} updateMix={updateMix} />}/>
                 <Route path="/register" element={<Register />}/>
             </Routes>

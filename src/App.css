@@ -217,3 +217,7 @@ a:visited {
   height: 20px;
   margin-top: 40px;
 }
+
+.mixdetail-loading {
+  visibility: hidden;
+}
