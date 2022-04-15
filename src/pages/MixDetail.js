@@ -113,7 +113,7 @@ function MixDetail(props) {
 
                 <div className="buttons">
                     <div id="like">
-                <Button onClick={() => setLiked("Liked")}>{liked}</Button>
+                {/* <Button onClick={() => setLiked("Liked")}>{liked}</Button> */}
                     </div>
                 <div>
                 <Link to={`/mixes/update/${mixes.id}`}>
