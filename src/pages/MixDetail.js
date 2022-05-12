@@ -19,7 +19,7 @@ function MixDetail(props) {
         const data = await response.json();
 
         
-        thisMix = data.find(taco => taco.id === foundId)
+        thisMix = data.find(mix => mix.id === foundId)
         setMixes(thisMix);
 
     };
@@ -39,7 +39,7 @@ function MixDetail(props) {
                 <div className="mix-detail">
                     <img className="carousel-image" alt={mixes.title} src={mixes.image}/>
                     <iframe className="iframe" width="100%" height="20" scrolling="no" frameBorder="no" title="mixtape" src={mixes.soundcloudplayer}></iframe>
-                    <h1 className="mix-test">{mixes.title}</h1> 
+                    <h1 className="mix-detail-title">{mixes.title}</h1> 
                     <p className="mix-test">{mixes.description}</p>
     
                     <div className="buttons">
@@ -59,7 +59,7 @@ function MixDetail(props) {
                 <div className="mix-detail">
                     <img className="carousel-image" alt={mixes.title} src={mixes.image}/>
                     <iframe className="iframe" width="100%" height="20" scrolling="no" frameBorder="no" title="mixtape" src={mixes.soundcloudplayer}></iframe>
-                    <h1 className="mix-test">{mixes.title}</h1> 
+                    <h1 className="mix-detail-title">{mixes.title}</h1> 
                     <p className="mix-test">{mixes.description}</p>
                 </div>
             );

@@ -25,9 +25,7 @@ body {
   .carousel-caption, .carousel-text {
   margin:5px;
   padding:0px;
-  font-size: 20px;
-  text-align: left !important;
-  color: white;
+  font-size: 18px;
   }
 }
 
@@ -80,10 +78,7 @@ a:visited {
 }
 
 .genre-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 60px;
+  margin: 50px;
 }
 
 .genre-text{
@@ -174,10 +169,17 @@ a:visited {
  .mix-detail{
   text-align: left;
   color: white;
-
 }
+
+.mix-detail-title {
+  font-size: 45px;
+  text-transform: uppercase;
+  color: white;
+  margin: 25px;
+}
+
 .mix-test, .update {
-  font-size: 30px;
+  font-size: 22px;
   text-align: left;
   color: white;
   margin: 25px;
