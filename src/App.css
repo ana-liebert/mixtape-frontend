@@ -141,6 +141,15 @@ a:visited {
   max-height: 500px;
   max-width: 600px;
 }
+
+@media only screen and (max-width: 480px) {
+  .host-img {
+    max-height: 400px;
+    max-width: 300px;
+    object-fit: cover;
+  }
+}
+
 .mycol {
   border: solid 1px white;
 }
