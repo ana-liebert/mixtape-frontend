@@ -29,6 +29,14 @@ body {
   }
 }
 
+@media only screen and (max-width: 480px) {
+  .carousel-caption, .carousel-text {
+  margin:5px;
+  padding:0px;
+  font-size: 12px;
+  }
+}
+
 @media only screen and (max-width: 1020px) {
   .carousel-image {
     width: 100%;
@@ -36,6 +44,8 @@ body {
     object-fit: cover;
   }
 }
+
+
 
 .mixcard {
   height: 560px;
@@ -68,6 +78,12 @@ body {
   padding: 16px !important;
 }
 
+@media only screen and (max-width: 480px) {
+  .nav-style {
+    font-size: 14px;
+  }
+}
+
 a:link {
   color: white;
   text-decoration: none !important;
@@ -98,6 +114,15 @@ a:visited {
   color: white;
 }
 
+
+@media only screen and (max-width: 480px) {
+  .genre-text-head{
+    font-size: 28px;
+    text-align: center;
+  }
+}
+
+
 .genre-text:hover {
   text-decoration: underline;
   color: white;
@@ -127,6 +152,12 @@ a:visited {
   font-weight: 600;
   background-color: black;
   color: white;
+}
+
+@media only screen and (max-width: 480px) {
+  .host-name {
+    font-size: 24px;
+  }
 }
 
 .profile-head {
