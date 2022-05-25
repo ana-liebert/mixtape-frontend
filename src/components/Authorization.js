@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axiosInstance  from '../axios';
+import axiosInstance from '../axios';
 import { useNavigate } from 'react-router-dom';
 import { Route, Routes } from "react-router-dom";
 import Login from '../pages/LoginPage';
@@ -10,9 +10,8 @@ import UpdateDelete from "../pages/UpdateDelete";
 import Home from "../pages/Home";
 import Create from "../pages/Create";
 import Register from "../pages/Register";
-
-
 import Header from "./Header";
+
 
 const Authorization = () => {
 
@@ -25,25 +24,27 @@ const Authorization = () => {
 
     const createCredentials = async user => {
 
-            setUserEmail(user.email)
-            axiosInstance
-                    // data to send to the server 
-                    .post(`token/`, {
-                        email: user.email,
-                        password: user.password,
-                    })
-                    // server sends back access and refresh tokens
-                    .then((res) => {
-                        localStorage.setItem('access_token', res.data.access);
-                        localStorage.setItem('refresh_token', res.data.refresh);
-                        axiosInstance.defaults.headers['Authorization'] = 
-                            'JWT ' + localStorage.getItem('access_token');
-                        navigate('/profile');
-                        console.log(res);
-                        console.log(res.data);
-                        setCredentials(res.data)
-                        console.log("you are logged in");
-                    })
+        setUserEmail(user.email)
+
+        axiosInstance
+            // data to send to the server 
+            .post(`token/`, {
+                email: user.email,
+                password: user.password,
+            })
+            // server sends back access and refresh tokens
+            .then((res) => {
+                localStorage.setItem('access_token', res.data.access);
+                localStorage.setItem('refresh_token', res.data.refresh);
+                axiosInstance.defaults.headers['Authorization'] =
+                    'JWT ' + localStorage.getItem('access_token');
+                navigate('/profile');
+                console.log(res);
+                console.log(res.data);
+                setCredentials(res.data)
+                console.log("you are logged in");
+
+            })
     }
 
     const removeCredentials = async user => {
@@ -51,24 +52,7 @@ const Authorization = () => {
         setUserEmail(null)
         setCredentials(null)
     }
-    
-    // need a route for the put*****
 
-    console.log("email to pass down", userEmail)
-
-    const PROFURL = 'http://localhost:8000/profile/6/';
-    const updateFavorites = async (favorites , userEmail) => {
-        await fetch(PROFURL, {
-            method: "put",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: {
-                favorites: JSON.stringify(favorites)
-            }
-        });
-        // getfavorites?
-    };
 
 
     const [mixes, setMixes] = useState(null);
@@ -80,6 +64,7 @@ const Authorization = () => {
         const data = await response.json();
         setMixes(data);
     };
+
 
     const [genres, setGenres] = useState(null);
 
@@ -93,7 +78,7 @@ const Authorization = () => {
 
     const createMix = async mix => {
         console.log(mix)
-        await fetch(URL ,{
+        await fetch(URL, {
             method: "post",
             headers: {
                 "Content-Type": "application/json",
@@ -121,7 +106,7 @@ const Authorization = () => {
         console.log("id inside the function", id)
         await fetch(URL + id + "/", {
             method: "delete",
-            })
+        })
         getMixes()
     }
 
@@ -135,14 +120,14 @@ const Authorization = () => {
         <div>
             <Header credentials={credentials} />
             <Routes>
-                <Route path="" element={<Home mixes={mixes} genres={genres}/>} />
-                <Route path="/login" element={<Login createCredentials={createCredentials}/>} />
-                <Route path="/logout" element={<Logout removeCredentials={removeCredentials} credentials={credentials}/>} />
-                <Route path="/profile" element={<Profile credentials={credentials} userEmail={userEmail}/>} /> 
-                <Route path="/mixes/:id" element={<MixDetail  updateFavorites={updateFavorites} userEmail={userEmail} credentials={credentials} />}/>
-                <Route path="/mixes/update/:id" element={<UpdateDelete genres={genres} deleteMix={deleteMix} updateMix={updateMix} credentials={credentials} />}/>
-                <Route path="/mixes/create" element={<Create createMix={createMix} genres={genres} />}/>
-                <Route path="/register" element={<Register />}/>
+                <Route path="" element={<Home mixes={mixes} genres={genres} />} />
+                <Route path="/login" element={<Login createCredentials={createCredentials} />} />
+                <Route path="/logout" element={<Logout removeCredentials={removeCredentials} credentials={credentials} />} />
+                <Route path="/profile" element={<Profile credentials={credentials} userEmail={userEmail} />} />
+                <Route path="/mixes/:id" element={<MixDetail userEmail={userEmail} credentials={credentials} />} />
+                <Route path="/mixes/update/:id" element={<UpdateDelete genres={genres} deleteMix={deleteMix} updateMix={updateMix} credentials={credentials} />} />
+                <Route path="/mixes/create" element={<Create createMix={createMix} genres={genres} />} />
+                <Route path="/register" element={<Register />} />
             </Routes>
         </div>
     )

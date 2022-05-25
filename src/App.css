@@ -15,6 +15,7 @@ body {
   text-align: left !important;
   color: white;
 }
+
 .carousel-text {
   background: black;
   padding: 20px;
@@ -22,18 +23,22 @@ body {
 }
 
 @media only screen and (max-width: 1020px) {
-  .carousel-caption, .carousel-text {
-  margin:5px;
-  padding:0px;
-  font-size: 18px;
+
+  .carousel-caption,
+  .carousel-text {
+    margin: 5px;
+    padding: 0px;
+    font-size: 18px;
   }
 }
 
 @media only screen and (max-width: 480px) {
-  .carousel-caption, .carousel-text {
-  margin:5px;
-  padding:0px;
-  font-size: 12px;
+
+  .carousel-caption,
+  .carousel-text {
+    margin: 5px;
+    padding: 0px;
+    font-size: 12px;
   }
 }
 
@@ -56,8 +61,8 @@ body {
   border-color: white !important;
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-right:10px;
-  padding-left:10px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 
@@ -88,6 +93,7 @@ a:link {
   color: white;
   text-decoration: none !important;
 }
+
 a:visited {
   color: white;
   text-decoration: none !important;
@@ -97,7 +103,7 @@ a:visited {
   margin: 50px;
 }
 
-.genre-text{
+.genre-text {
   font-size: 20px;
   padding: 10px;
   margin: 10px;
@@ -106,7 +112,7 @@ a:visited {
   color: white;
 }
 
-.genre-text-head{
+.genre-text-head {
   font-size: 40px;
   margin: 50px;
   font-weight: 600;
@@ -116,7 +122,7 @@ a:visited {
 
 
 @media only screen and (max-width: 480px) {
-  .genre-text-head{
+  .genre-text-head {
     font-size: 28px;
     text-align: center;
   }
@@ -137,6 +143,7 @@ a:visited {
   margin: 20px;
   position: relative;
 }
+
 .host-img {
   max-height: 500px;
   max-width: 600px;
@@ -173,24 +180,34 @@ a:visited {
   color: white;
   display: flex;
   justify-content: space-between;
-  margin-top:50px;
-  margin-bottom:50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   margin-left: 90px;
   margin-right: 90px;
   border-bottom: solid white;
 }
 
+.post {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 90px;
+  margin-right: 90px;
+}
+
 .form-container {
-  margin-top:100px;
-  margin-bottom:100px;
+  margin-top: 100px;
+  margin-bottom: 100px;
   color: white;
   padding: 80px;
 }
 
 @media only screen and (min-width: 950px) {
   .form-container {
-    margin-top:100px;
-    margin-bottom:100px;
+    margin-top: 100px;
+    margin-bottom: 100px;
     margin-left: 300px;
     margin-right: 300px;
     color: white;
@@ -201,12 +218,12 @@ a:visited {
 .signUp {
   color: white;
   display: inline-block;
-  text-align:end;
+  text-align: end;
   margin: 30px;
   text-decoration: underline;
 }
 
- .mix-detail{
+.mix-detail {
   text-align: left;
   color: white;
 }
@@ -218,7 +235,8 @@ a:visited {
   margin: 25px;
 }
 
-.mix-test, .update {
+.mix-test,
+.update {
   font-size: 22px;
   text-align: left;
   color: white;
@@ -237,14 +255,15 @@ a:visited {
 
 .buttons {
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   justify-content: space-between;
   width: 30px;
   height: 35px;
-  margin:10px;
+  margin: 10px;
 }
 
-#like, #update {
+#like,
+#update {
   margin: 10px;
   margin-bottom: 100px;
 }
