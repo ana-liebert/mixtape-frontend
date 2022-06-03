@@ -9,6 +9,7 @@ function UpdateDelete(props) {
 
     
     const [mixes, setMixes] = useState(null);
+    // const [creator, setCreator] = useState(null);
 
     const navigate = useNavigate()
 
@@ -26,15 +27,23 @@ function UpdateDelete(props) {
         setMixes(thisMix);
     };
 
+    // const getCreator = async () => {
+    //     const response = await fetch(URL);
+    //     const data = await response.json();
+
+    //     thisCreator = data.find(mix => mix.creator === foundId)
+    //     setCreator(thisMix);
+    // };
 
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
-    const host = 6;
+    const [host, setHost] = useState();
     const [genre, setGenre] = useState([]);
     const [image, setImage] = useState("");
     const [soundcloudplayer, setSoundcloud] = useState("");
-    const creator = "1"
+    const creator = props.userID
+    // const creator = mixes.creator
     const tracklist = ""
 
 
@@ -60,7 +69,7 @@ function UpdateDelete(props) {
         navigate("/")
     }
 
-    console.log("credentials coming to update page ", props.credentials)
+
 
     useEffect(() => {
         getMixes()
@@ -92,6 +101,18 @@ function UpdateDelete(props) {
                             onChange={e => setDescription(e.target.value)}
                         />
                     </Form.Group>
+
+                    <Form.Group >
+                    <Form.Label>Host</Form.Label>
+                    <Form.Select
+                        onChange={e => setHost(e.target.value)} >
+                        {props.hosts.map(
+                            (host) => <option key={host.id} value={[host.id]}>
+                                {host.name}
+                            </option>
+                        )}
+                    </Form.Select>
+                </Form.Group>
 
                     <Form.Group className="mb-3" >
                         <Form.Label>Image</Form.Label>

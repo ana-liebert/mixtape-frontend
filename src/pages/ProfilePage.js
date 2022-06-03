@@ -4,41 +4,8 @@ import { useState, useEffect } from "react";
 
 const Profile = (props) => {
 
-
     const profileEmail = props.userEmail
     const credentials = props.credentials
-
-    const [user, setUser] = useState([]);
-    const [userID, setUserID] = useState([])
-
-
-  
-    const URL = "https://aliebert-mixtape.herokuapp.com/user/users/";
-
-    let foundUser
-
-    const getUser = async () => {
-        const response = await fetch(URL);
-        const data = await response.json();
-
-        foundUser = data.filter((filtered) => {
-            return filtered.email.includes(profileEmail)
-        })
-        setUser(foundUser);
-
-    };
-
-    let foundID
-    const getUserId = async () => {
-        foundID = user.map((userid) => {
-            return (
-                userid.id
-            )
-        })
-        let numID = +foundID.join("")
-        setUserID(numID)
-    }
-
 
     const [mixes, setMixes] = useState([]);
 
@@ -51,7 +18,7 @@ const Profile = (props) => {
         const data = await response.json();
 
         foundMixes = data.filter((filteredMix) => {
-            return filteredMix.creator === userID
+            return filteredMix.creator === props.userID
         })
         setMixes(foundMixes);
     };
@@ -59,15 +26,6 @@ const Profile = (props) => {
 
     useEffect(() => {
         getMixes()
-    }, [userID]) // eslint-disable-line react-hooks/exhaustive-deps
-
-    useEffect(() => {
-        getUserId()
-        console.log("and the user ID is... ", userID)
-    }, [user]) // eslint-disable-line react-hooks/exhaustive-deps
-
-    useEffect(() => {
-        getUser()
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
 
@@ -99,7 +57,7 @@ const Profile = (props) => {
                     </Link>
                 </div>
 
-            <div className="post">Your Posts:</div>
+                <div className="post">Your Posts:</div>
                 <div className="container">
 
                     <div className="row">

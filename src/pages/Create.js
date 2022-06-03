@@ -9,13 +9,15 @@ function Create(props) {
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
-    const host = 6;
+    const [host, setHost] = useState();
     const [genre, setGenre] = useState([]);
     const [image, setImage] = useState("");
     const [soundcloudplayer, setSoundcloud] = useState("");
-    const creator = "5"
+    const creator = props.userID
     const tracklist = ""
+    //to-do:remove
 
+    console.log(creator)
 
     const handleSubmit = event => {
         let mix = {
@@ -55,6 +57,20 @@ function Create(props) {
                     />
                 </Form.Group>
 
+
+                <Form.Group >
+                    <Form.Label>Host</Form.Label>
+                    <Form.Select
+                        onChange={e => setHost(e.target.value)} >
+                        {props.hosts.map(
+                            (host) => <option key={host.id} value={[host.id]}>
+                                {host.name}
+                            </option>
+                        )}
+                    </Form.Select>
+                </Form.Group>
+
+
                 <Form.Group className="mb-3" >
                     <Form.Label>Image</Form.Label>
                     <Form.Control
@@ -73,9 +89,9 @@ function Create(props) {
                     />
                 </Form.Group>
 
-                <Form.Group >
+                <Form.Group>
                     <Form.Label>Genre</Form.Label>
-                    <Form.Select
+                    <Form.Select 
                         onChange={e => setGenre([e.target.value])} >
                         {props.genres.map(
                             (genre) => <option key={genre.id} value={[genre.id]}>

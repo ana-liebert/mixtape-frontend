@@ -76,6 +76,16 @@ const Authorization = () => {
         setGenres(data);
     };
 
+    const [hosts, setHosts] = useState(null);
+
+    const URLHOST = "https://aliebert-mixtape.herokuapp.com/mixtape/hosts/";
+
+    const getHosts = async () => {
+        const response = await fetch(URLHOST);
+        const data = await response.json();
+        setHosts(data);
+    };
+
     const createMix = async mix => {
         console.log(mix)
         await fetch(URL, {
@@ -111,8 +121,48 @@ const Authorization = () => {
     }
 
 
+        const [user, setUser] = useState([]);
+        const [userID, setUserID] = useState([])
+        console.log("user id " , userID)
+    
+    
+        const URLUSER = "https://aliebert-mixtape.herokuapp.com/user/users/";
+    
+        let foundUser
+        const getUser = async () => {
+            const response = await fetch(URLUSER);
+            const data = await response.json();
+    
+            foundUser = data.filter((filtered) => {
+                return filtered.email.includes(userEmail)
+            })
+            setUser(foundUser);
+        };
+    
+        let foundID
+        const getUserId = async () => {
+            foundID = user.map((userid) => {
+                return (
+                    userid.id
+                )
+            })
+            let numID = +foundID.join("")
+            setUserID(numID)
+        }
+    
+
+    useEffect(() => {
+        getUserId()
+    }, [user]) // eslint-disable-line react-hooks/exhaustive-deps
+
+    useEffect(() => {
+        getUser()
+    }, [userEmail]) // eslint-disable-line react-hooks/exhaustive-deps
+
+
     useEffect(() => getMixes(), []);
     useEffect(() => getGenres(), []);
+    useEffect(() => getHosts(), []);
 
 
 
@@ -123,10 +173,10 @@ const Authorization = () => {
                 <Route path="" element={<Home mixes={mixes} genres={genres} />} />
                 <Route path="/login" element={<Login createCredentials={createCredentials} />} />
                 <Route path="/logout" element={<Logout removeCredentials={removeCredentials} credentials={credentials} />} />
-                <Route path="/profile" element={<Profile credentials={credentials} userEmail={userEmail} />} />
+                <Route path="/profile" element={<Profile credentials={credentials} userEmail={userEmail} userID={userID} user={user} />} />
                 <Route path="/mixes/:id" element={<MixDetail userEmail={userEmail} credentials={credentials} />} />
-                <Route path="/mixes/update/:id" element={<UpdateDelete genres={genres} deleteMix={deleteMix} updateMix={updateMix} credentials={credentials} />} />
-                <Route path="/mixes/create" element={<Create createMix={createMix} genres={genres} />} />
+                <Route path="/mixes/update/:id" element={<UpdateDelete genres={genres} deleteMix={deleteMix} updateMix={updateMix} credentials={credentials} userID={userID} hosts={hosts}/>} />
+                <Route path="/mixes/create" element={<Create createMix={createMix} genres={genres} hosts={hosts} userID={userID} />} />
                 <Route path="/register" element={<Register />} />
             </Routes>
         </div>
