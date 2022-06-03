@@ -9,31 +9,29 @@ function UpdateDelete(props) {
 
     
     const [mixes, setMixes] = useState(null);
-    // const [creator, setCreator] = useState(null);
+    const [creatorID, setCreator] = useState(null);
 
     const navigate = useNavigate()
 
     const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/mixes/";
 
     let thisMix
+    let foundCreatorID
     const mixId = useParams()
     const foundId = Number(mixId.id)
 
     const getMixes = async () => {
         const response = await fetch(URL);
         const data = await response.json();
-
         thisMix = data.find(mix => mix.id === foundId)
         setMixes(thisMix);
     };
 
-    // const getCreator = async () => {
-    //     const response = await fetch(URL);
-    //     const data = await response.json();
 
-    //     thisCreator = data.find(mix => mix.creator === foundId)
-    //     setCreator(thisMix);
-    // };
+    const getCreator = async () => {
+        foundCreatorID = mixes.creator
+        setCreator(foundCreatorID);
+    };
 
 
     const [title, setTitle] = useState("");
@@ -42,8 +40,7 @@ function UpdateDelete(props) {
     const [genre, setGenre] = useState([]);
     const [image, setImage] = useState("");
     const [soundcloudplayer, setSoundcloud] = useState("");
-    const creator = props.userID
-    // const creator = mixes.creator
+    const creator = creatorID
     const tracklist = ""
 
 
@@ -70,6 +67,10 @@ function UpdateDelete(props) {
     }
 
 
+
+    useEffect(() => {
+        getCreator()
+    }, [mixes]) // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => {
         getMixes()

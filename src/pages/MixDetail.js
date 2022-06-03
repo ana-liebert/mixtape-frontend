@@ -18,10 +18,8 @@ function MixDetail(props) {
         const response = await fetch(URL + "mixes");
         const data = await response.json();
 
-        
         thisMix = data.find(mix => mix.id === foundId)
         setMixes(thisMix);
-
     };
     
 
@@ -29,8 +27,6 @@ function MixDetail(props) {
         getMixes()
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-
-    console.log("credentials coming to mix detail page ", props.credentials )
 
     const loaded = () => {
 
@@ -64,7 +60,6 @@ function MixDetail(props) {
                 </div>
             );
         }
-
     };
 
 

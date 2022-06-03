@@ -20,7 +20,6 @@ const Authorization = () => {
     const [credentials, setCredentials] = useState(null);
     const [userEmail, setUserEmail] = useState(null);
 
-    console.log("these are the credentials", credentials)
 
     const createCredentials = async user => {
 
@@ -123,7 +122,6 @@ const Authorization = () => {
 
         const [user, setUser] = useState([]);
         const [userID, setUserID] = useState([])
-        console.log("user id " , userID)
     
     
         const URLUSER = "https://aliebert-mixtape.herokuapp.com/user/users/";

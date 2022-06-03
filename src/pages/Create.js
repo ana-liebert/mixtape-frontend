@@ -17,7 +17,6 @@ function Create(props) {
     const tracklist = ""
     //to-do:remove
 
-    console.log(creator)
 
     const handleSubmit = event => {
         let mix = {

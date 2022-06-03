@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 
 
 function DiscoverPage(props) {
-    console.log("these are the props", props)
-
 
     const loaded = () => {
         return (
@@ -29,6 +27,5 @@ function DiscoverPage(props) {
     return props.genres ? loaded() : loading()
 
 }
-
 
 export default DiscoverPage

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 function Header(props) {
 
     let status = props.credentials
-    console.log(status)
 
 
     const loggedIn = () => {
