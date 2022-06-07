@@ -6,6 +6,7 @@ import Button from "react-bootstrap/esm/Button";
 
 function MixDetail(props) {
     const [mixes, setMixes] = useState(null);
+    const [host, setHost] = useState([]);
 
     const URL = "https://aliebert-mixtape.herokuapp.com/mixtape/";
 
@@ -21,12 +22,25 @@ function MixDetail(props) {
         thisMix = data.find(mix => mix.id === foundId)
         setMixes(thisMix);
     };
-    
 
+
+    const getHost = async () => {
+        for (let i =0; i < props.hosts.length; i++) {
+            if (props.hosts[i].id === mixes.host) {
+                setHost(props.hosts[i].name)
+            }
+        }
+    }
+    
+    
+    
     useEffect(() => {
         getMixes()
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
-
+    
+    useEffect(() => {
+        getHost()
+    }, [mixes]) 
 
     const loaded = () => {
 
@@ -37,7 +51,8 @@ function MixDetail(props) {
                     <iframe className="iframe" width="100%" height="20" scrolling="no" frameBorder="no" title="mixtape" src={mixes.soundcloudplayer}></iframe>
                     <h1 className="mix-detail-title">{mixes.title}</h1> 
                     <p className="mix-test">{mixes.description}</p>
-    
+                    <p className="mix-test">Hosted by: <Link to={`/hosts/${mixes.host}`}> {host}</Link> </p>
+
                     <div className="buttons">
                     <Link to={`/mixes/update/${mixes.id}`}>
                     <Button id="update">Update</Button>
@@ -57,6 +72,8 @@ function MixDetail(props) {
                     <iframe className="iframe" width="100%" height="20" scrolling="no" frameBorder="no" title="mixtape" src={mixes.soundcloudplayer}></iframe>
                     <h1 className="mix-detail-title">{mixes.title}</h1> 
                     <p className="mix-test">{mixes.description}</p>
+                    <p className="mix-test">Hosted by: <Link to={`/hosts/${mixes.host}`}> {host}</Link> </p>
+                    
                 </div>
             );
         }

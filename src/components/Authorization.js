@@ -172,7 +172,7 @@ const Authorization = () => {
                 <Route path="/login" element={<Login createCredentials={createCredentials} />} />
                 <Route path="/logout" element={<Logout removeCredentials={removeCredentials} credentials={credentials} />} />
                 <Route path="/profile" element={<Profile credentials={credentials} userEmail={userEmail} userID={userID} user={user} />} />
-                <Route path="/mixes/:id" element={<MixDetail userEmail={userEmail} credentials={credentials} />} />
+                <Route path="/mixes/:id" element={<MixDetail userEmail={userEmail} credentials={credentials} genres={genres} hosts={hosts}/>} />
                 <Route path="/mixes/update/:id" element={<UpdateDelete genres={genres} deleteMix={deleteMix} updateMix={updateMix} credentials={credentials} userID={userID} hosts={hosts}/>} />
                 <Route path="/mixes/create" element={<Create createMix={createMix} genres={genres} hosts={hosts} userID={userID} />} />
                 <Route path="/register" element={<Register />} />
