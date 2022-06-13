@@ -112,7 +112,7 @@ const Authorization = () => {
 
 
     const deleteMix = async (mix, id) => {
-        console.log("id inside the function", id)
+
         await fetch(URL + id + "/", {
             method: "delete",
         })

@@ -14,7 +14,7 @@ function Create(props) {
     const [image, setImage] = useState("");
     const [soundcloudplayer, setSoundcloud] = useState("");
     const creator = props.userID
-    const tracklist = ""
+    // const tracklist = ""
     //to-do:remove
 
 
@@ -27,7 +27,7 @@ function Create(props) {
             image,
             soundcloudplayer,
             creator,
-            tracklist,
+            // tracklist,
         };
         event.preventDefault()
         props.createMix(mix)

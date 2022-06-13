@@ -41,7 +41,7 @@ function UpdateDelete(props) {
     const [image, setImage] = useState("");
     const [soundcloudplayer, setSoundcloud] = useState("");
     const creator = creatorID
-    const tracklist = ""
+    // const tracklist = ""
 
 
     const handleSubmit = event => {
@@ -53,7 +53,7 @@ function UpdateDelete(props) {
             image,
             soundcloudplayer,
             creator,
-            tracklist,
+            // tracklist,
         };
         event.preventDefault()
         props.updateMix(mix, mixes.id)
