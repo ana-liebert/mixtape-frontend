@@ -13,6 +13,7 @@ function Home(props) {
               <Carousel.Item interval={2000}>
                 <img
                   className="carousel-image"
+                  key={mix.id}
                   src={mix.image}
                   alt={mix.title} />
                 <Carousel.Caption>

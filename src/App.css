@@ -103,6 +103,20 @@ a:visited {
   margin: 50px;
 }
 
+.genre-container-mixpage {
+  margin: 30px;
+  display: flex;
+  flex-direction: row;
+}
+
+.listed-genres {
+  border: solid;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+}
+
+
 .genre-text {
   font-size: 20px;
   padding: 10px;
@@ -228,6 +242,11 @@ a:visited {
   color: white;
 }
 
+.host-link {
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
 .mix-detail-title {
   font-size: 45px;
   text-transform: uppercase;
@@ -276,8 +295,22 @@ a:visited {
 
 .iframe {
   height: 20px;
-  margin-top: 40px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
+
+.iframe-container {
+  height: 30px;
+  background-color: rgb(56, 56, 58);
+  padding: 20px;
+}
+
+.mix-image {
+  position: relative;
+}
+
 
 .mixdetail-loading {
   visibility: hidden;
