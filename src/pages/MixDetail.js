@@ -37,15 +37,13 @@ function MixDetail(props) {
     const getGenres = async () => {
         for (let i = 0; i < mixes.genre.length; i++) {
             for (let j = 0; j < props.genres.length; j++) {
-                if (mixes.genre[i] == props.genres[j].id) {
+                if (mixes.genre[i] === props.genres[j].id) {
                     result.push(props.genres[i].name)
                 }
             }
         }
         setGnres(result)
     }
-
-    console.log(gnres)
 
 
     useEffect(() => {
@@ -54,11 +52,11 @@ function MixDetail(props) {
 
     useEffect(() => {
         getHost()
-    }, [mixes])
+    }, [mixes]) // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => {
         getGenres()
-    }, [mixes])
+    }, [mixes]) // eslint-disable-line react-hooks/exhaustive-deps
 
     const loaded = () => {
 
