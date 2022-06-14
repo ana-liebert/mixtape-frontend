@@ -38,12 +38,14 @@ function MixDetail(props) {
         for (let i = 0; i < mixes.genre.length; i++) {
             for (let j = 0; j < props.genres.length; j++) {
                 if (mixes.genre[i] === props.genres[j].id) {
-                    result.push(props.genres[i].name)
+                    result.push(props.genres[j].name)
                 }
             }
         }
         setGnres(result)
+        console.log(result)
     }
+
 
 
     useEffect(() => {
