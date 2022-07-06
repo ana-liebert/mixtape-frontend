@@ -43,7 +43,6 @@ function MixDetail(props) {
             }
         }
         setGnres(result)
-        console.log(result)
     }
 
 

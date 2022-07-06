@@ -64,6 +64,8 @@ const Authorization = () => {
         setMixes(data);
     };
 
+    console.log(mixes)
+
 
     const [genres, setGenres] = useState(null);
 
