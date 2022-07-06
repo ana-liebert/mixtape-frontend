@@ -7,10 +7,15 @@ import Profile from '../pages/ProfilePage';
 import Logout from '../pages/Logout';
 import MixDetail from "../pages/MixDetail";
 import UpdateDelete from "../pages/UpdateDelete";
+import DiscoverPage from "../pages/DiscoverPage";
+import GenreIndex from "../pages/GenreIndex";
 import Home from "../pages/Home";
 import Create from "../pages/Create";
 import Register from "../pages/Register";
 import Header from "./Header";
+import HostIndex from '../pages/HostIndex'
+import HostDetail from '../pages/HostDetail'
+
 
 
 const Authorization = () => {
@@ -173,11 +178,15 @@ const Authorization = () => {
                 <Route path="" element={<Home mixes={mixes} genres={genres} />} />
                 <Route path="/login" element={<Login createCredentials={createCredentials} />} />
                 <Route path="/logout" element={<Logout removeCredentials={removeCredentials} credentials={credentials} />} />
+                <Route path="/register" element={<Register />} />
                 <Route path="/profile" element={<Profile credentials={credentials} userEmail={userEmail} userID={userID} user={user} />} />
                 <Route path="/mixes/:id" element={<MixDetail userEmail={userEmail} credentials={credentials} genres={genres} hosts={hosts}/>} />
                 <Route path="/mixes/update/:id" element={<UpdateDelete genres={genres} deleteMix={deleteMix} updateMix={updateMix} credentials={credentials} userID={userID} hosts={hosts}/>} />
                 <Route path="/mixes/create" element={<Create createMix={createMix} genres={genres} hosts={hosts} userID={userID} />} />
-                <Route path="/register" element={<Register />} />
+                <Route path="/discover" element={<DiscoverPage genres={genres}/>} />
+                <Route path="/discover/:id" element={<GenreIndex genres={genres} />}/> 
+                <Route path="/hosts" element={<HostIndex hosts={hosts}/>} />
+                <Route path="/hosts/:id" element={<HostDetail />}/> 
             </Routes>
         </div>
     )
