@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/esm/Button';
 
 export default function SignUp() {
     const navigate = useNavigate();
-    // object freeze gets user to type in info, and once it's commited the information is freezed and cannot be changed, small security measure
+
     const initialFormData = Object.freeze({
         email: '',
         username: '',
@@ -18,9 +18,8 @@ export default function SignUp() {
 
     const handleChange = (e) => {
         updateFormData({
-            ...formData, //referencing the formData use state and updating with updateFormData
-            // get the event name and value
-            // trimming any whitespace because data can come in with spaces
+            ...formData, 
+
             [e.target.name]: e.target.value.trim(),
         });
     };
@@ -29,8 +28,7 @@ export default function SignUp() {
         e.preventDefault();
         console.log(formData)
 
-        // axios is how we're sending the data
-        // posting to the user/register path created in urls.py
+
         axiosInstance
             .post(`user/register/`, {
                 email: formData.email,

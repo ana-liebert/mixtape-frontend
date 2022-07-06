@@ -1,18 +1,13 @@
 import axios from 'axios';
 
-// basic connection to axios ------->
 
-// const baseURL = "http://localhost:8000/"
 const baseURL = "https://aliebert-mixtape.herokuapp.com/"
 
 
 const axiosInstance = axios.create({
     baseURL: baseURL,
     timeout: 5000,
-    // timeout just in case we can't connect
-    // need to code in auth header from jwt settings
     headers: {
-        // get data out of the local storage
         Authorization: localStorage.getItem('access_token')
             ? 'JWT ' + localStorage.getItem('access_token')
             : null,
@@ -56,7 +51,6 @@ axiosInstance.interceptors.response.use(
 			if (refreshToken) {
 				const tokenParts = JSON.parse(window.atob(refreshToken.split('.')[1]));
 
-				// exp date in token is expressed in seconds, while now() returns milliseconds:
 				const now = Math.ceil(Date.now() / 1000);
 				console.log(tokenParts.exp);
 
@@ -87,7 +81,6 @@ axiosInstance.interceptors.response.use(
 			}
 		}
 
-		// specific error handling done elsewhere
 		return Promise.reject(error);
 	}
 );
