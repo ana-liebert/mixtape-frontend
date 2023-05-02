@@ -51,7 +51,7 @@ function Home(props) {
   };
 
   const loading = () => {
-    return <div class="loading"> <iframe src="https://giphy.com/embed/3o7bu3XilJ5BOiSGic" width="100" height="100" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>;
+    return <div class="loading"> <iframe title="loading" src="https://giphy.com/embed/3o7bu3XilJ5BOiSGic" width="100" height="100" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>;
   };
   return props.mixes ? loaded() : loading()
 
